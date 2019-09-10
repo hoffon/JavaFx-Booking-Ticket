@@ -60,7 +60,7 @@
                                           <Image url="@../image/time.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="booktheatre1" layoutX="26.0" layoutY="156.0" mnemonicParsing="false" onAction="#handleSubmitBtnOnAction" text="10.00" />
+                                    <Button fx:id="booktheatre1" layoutX="26.0" layoutY="156.0" mnemonicParsing="false" onAction="#bookingTheatre1" text="10.00" />
                                     <ImageView fitHeight="34.0" fitWidth="23.0" layoutX="269.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../image/theater.png" />
@@ -116,7 +116,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="24.0" layoutY="214.0" mnemonicParsing="false" text="12.30" />
+                                    <Button layoutX="24.0" layoutY="214.0" mnemonicParsing="false" onAction="#bookingTheatre5" text="12.30" />
                                     <Label layoutX="298.0" layoutY="214.0" text="Theatre 5">
                                        <font>
                                           <Font size="18.0" />
@@ -180,7 +180,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="10.0" layoutY="184.0" mnemonicParsing="false" text="15.00" />
+                                    <Button fx:id="booktheatre4" layoutX="10.0" layoutY="184.0" mnemonicParsing="false" onAction="#bookingTheatre4" text="15.00" />
                                     <Label layoutX="303.0" layoutY="183.0" text="Theatre 4">
                                        <font>
                                           <Font size="18.0" />
@@ -242,7 +242,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="10.0" layoutY="194.0" mnemonicParsing="false" text="17.30" />
+                                    <Button layoutX="10.0" layoutY="194.0" mnemonicParsing="false" onAction="#bookingTheatre6" text="17.30" />
                                     <Label layoutX="304.0" layoutY="193.0" text="Theatre 6">
                                        <font>
                                           <Font size="18.0" />
@@ -312,7 +312,7 @@
                                           <Image url="@../image/time.png" />
                                        </image>
                                     </ImageView>
-                                    <Button layoutX="10.0" layoutY="182.0" mnemonicParsing="false" text="20.00" />
+                                    <Button fx:id="booktheatre2" layoutX="10.0" layoutY="182.0" mnemonicParsing="false" onAction="#bookingTheatre2" text="20.00" />
                                     <Label layoutX="304.0" layoutY="181.0" text="Theatre 2">
                                        <font>
                                           <Font size="18.0" />
@@ -374,7 +374,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="9.0" layoutY="188.0" mnemonicParsing="false" text="22.30" />
+                                    <Button fx:id="booktheatre3" layoutX="9.0" layoutY="188.0" mnemonicParsing="false" onAction="#bookingTheatre3" text="22.30" />
                                     <Label layoutX="304.0" layoutY="187.0" text="Theatre 3">
                                        <font>
                                           <Font size="18.0" />
@@ -395,6 +395,11 @@
                         </SplitPane>
                      </children>
                   </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Untitled Tab">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
             </Tab>
         </tabs>

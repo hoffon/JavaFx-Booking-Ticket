@@ -11,9 +11,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinema.Theatre4">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="600.0" style="-fx-background-color: #575757;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinema.Theatre4">
    <children>
-      <Pane prefHeight="49.0" prefWidth="600.0" style="-fx-background-color: #575757;">
+      <Pane prefHeight="49.0" prefWidth="600.0" style="-fx-background-color: #000000;">
          <children>
             <Label layoutX="112.0" layoutY="10.0" text="Star Wars: Episode VI - Return of the Jedi" textFill="WHITE">
                <font>
@@ -27,7 +27,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutY="503.0" prefHeight="49.0" prefWidth="600.0" style="-fx-background-color: #575757;">
+      <Pane layoutY="503.0" prefHeight="49.0" prefWidth="600.0" style="-fx-background-color: #000000;">
          <children>
             <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="26.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -41,7 +41,7 @@
                   <Image url="@../image/premiumchair.png" />
                </image>
             </ImageView>
-            <Button layoutX="545.0" layoutY="12.0" mnemonicParsing="false" text="Back" />
+            <Button fx:id="backtofirst" layoutX="545.0" layoutY="12.0" mnemonicParsing="false" onAction="#backToFirstPage" text="Back" />
          </children>
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c0c0c0" height="39.0" layoutX="135.0" layoutY="89.0" stroke="#b1b1b1" strokeType="INSIDE" width="325.0">
@@ -173,22 +173,7 @@
             <Image url="@../image/premiumchair.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="89.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="281.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="245.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="245.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/premiumchair.png" />
          </image>
@@ -203,17 +188,7 @@
             <Image url="@../image/premiumchair.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="206.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="167.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="167.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/premiumchair.png" />
          </image>
@@ -223,37 +198,7 @@
             <Image url="@../image/premiumchair.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="128.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="319.0" layoutY="384.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="475.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="436.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="397.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="358.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/premiumchair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="39.0" fitWidth="39.0" layoutX="319.0" layoutY="345.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/premiumchair.png" />
          </image>

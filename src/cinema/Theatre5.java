@@ -3,12 +3,14 @@ package cinema;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
-public class Theatre4 extends Cinema {
+public class Theatre5 extends Cinema{
     @FXML
     Button backtofirst ;
+
 
     @Override
     public void backToFirstPage(ActionEvent event) throws IOException {
