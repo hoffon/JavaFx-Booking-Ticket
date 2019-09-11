@@ -228,5 +228,11 @@
             <Image url="@../image/3d-film.png" />
          </image>
       </ImageView>
+      <Label layoutX="564.0" layoutY="212.0" text="C" textFill="WHITE" />
+      <Label layoutX="25.0" layoutY="212.0" prefHeight="17.0" prefWidth="28.0" text="C" textFill="WHITE" />
+      <Label layoutX="565.0" layoutY="267.0" text="B" textFill="WHITE" />
+      <Label layoutX="25.0" layoutY="267.0" text="B" textFill="WHITE" />
+      <Label layoutX="565.0" layoutY="395.0" text="A" textFill="WHITE" />
+      <Label layoutX="25.0" layoutY="395.0" text="A" textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -228,5 +228,11 @@
             <Image url="@../image/vipchair.png" />
          </image>
       </ImageView>
+      <Label layoutX="25.0" layoutY="212.0" text="C" textFill="WHITE" />
+      <Label layoutX="560.0" layoutY="266.0" text="B" textFill="WHITE" />
+      <Label layoutX="25.0" layoutY="266.0" text="B" textFill="WHITE" />
+      <Label layoutX="560.0" layoutY="395.0" text="A" textFill="WHITE" />
+      <Label layoutX="25.0" layoutY="395.0" text="A" textFill="WHITE" />
+      <Label layoutX="560.0" layoutY="212.0" text="C" textFill="WHITE" />
    </children>
 </AnchorPane>

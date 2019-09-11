@@ -223,5 +223,11 @@
             <Image url="@../image/premiumchair.png" />
          </image>
       </ImageView>
+      <Label layoutX="23.0" layoutY="212.0" text="C" textFill="WHITE" />
+      <Label layoutX="23.0" layoutY="267.0" text="B" textFill="WHITE" />
+      <Label layoutX="560.0" layoutY="212.0" text="C" textFill="WHITE" />
+      <Label layoutX="560.0" layoutY="266.0" text="B" textFill="WHITE" />
+      <Label layoutX="23.0" layoutY="395.0" text="A" textFill="WHITE" />
+      <Label layoutX="560.0" layoutY="395.0" text="A" textFill="WHITE" />
    </children>
 </AnchorPane>
