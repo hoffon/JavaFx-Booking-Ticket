@@ -31,7 +31,7 @@
       </Pane>
       <Pane layoutY="503.0" prefHeight="49.0" prefWidth="600.0" style="-fx-background-color: #000000;">
          <children>
-            <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="26.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="chair" fitHeight="41.0" fitWidth="39.0" layoutX="26.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/chair.png" />
                </image>
@@ -49,152 +49,72 @@
       <Line endX="-112.33331298828125" endY="49.33332824707031" layoutX="663.0" layoutY="83.0" startX="-100.0" stroke="WHITE" />
       <Line endX="433.70709228515625" endY="-0.7071075439453125" layoutX="130.0" layoutY="83.0" startX="-100.0" stroke="WHITE" />
       <Line endX="403.9595947265625" endY="-0.959564208984375" layoutX="146.0" layoutY="134.0" startX="-100.626220703125" startY="-1.6262359619140625" stroke="WHITE" />
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="89.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairb4" fitHeight="41.0" fitWidth="39.0" layoutX="319.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair9" fitHeight="41.0" fitWidth="39.0" layoutX="436.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairb3" fitHeight="41.0" fitWidth="39.0" layoutX="280.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair8" fitHeight="41.0" fitWidth="39.0" layoutX="397.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairb2" fitHeight="41.0" fitWidth="39.0" layoutX="245.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair7" fitHeight="41.0" fitWidth="39.0" layoutX="358.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairb1" fitHeight="41.0" fitWidth="39.0" layoutX="206.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair6" fitHeight="41.0" fitWidth="39.0" layoutX="319.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairb0" fitHeight="41.0" fitWidth="39.0" layoutX="167.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair5" fitHeight="41.0" fitWidth="39.0" layoutX="280.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairc6" fitHeight="41.0" fitWidth="39.0" layoutX="397.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair4" fitHeight="41.0" fitWidth="39.0" layoutX="245.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairc5" fitHeight="41.0" fitWidth="39.0" layoutX="358.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair3" fitHeight="41.0" fitWidth="39.0" layoutX="206.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairc4" fitHeight="41.0" fitWidth="39.0" layoutX="319.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair2" fitHeight="41.0" fitWidth="39.0" layoutX="167.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairc3" fitHeight="41.0" fitWidth="39.0" layoutX="280.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair1" fitHeight="41.0" fitWidth="39.0" layoutX="128.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairc2" fitHeight="41.0" fitWidth="39.0" layoutX="245.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair0" fitHeight="41.0" fitWidth="39.0" layoutX="89.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairc1" fitHeight="41.0" fitWidth="39.0" layoutX="206.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="319.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairc0" fitHeight="41.0" fitWidth="39.0" layoutX="167.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="280.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairb6" fitHeight="41.0" fitWidth="39.0" layoutX="397.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="245.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="206.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="167.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="128.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="89.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="436.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="397.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="358.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="319.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="281.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="245.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="206.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="167.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="128.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="436.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="397.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="358.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="chairb5" fitHeight="41.0" fitWidth="39.0" layoutX="358.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
@@ -249,22 +169,7 @@
             <Image url="@../image/chair.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="chair10" fitHeight="41.0" fitWidth="39.0" layoutX="475.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="475.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="475.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../image/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="475.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/chair.png" />
          </image>
@@ -274,54 +179,74 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="15.0" layoutY="212.0" text="D" textFill="WHITE" />
       <Label layoutX="561.0" layoutY="410.0" text="A" textFill="WHITE" />
-      <Label layoutX="561.0" layoutY="322.0" text="C" textFill="WHITE" />
-      <Label layoutX="561.0" layoutY="267.0" text="B" textFill="WHITE" />
-      <Label layoutX="559.0" layoutY="212.0" text="D" textFill="WHITE" />
+      <Label layoutX="561.0" layoutY="322.0" text="B" textFill="WHITE" />
+      <Label layoutX="561.0" layoutY="267.0" text="C" textFill="WHITE" />
       <Label layoutX="15.0" layoutY="410.0" text="A" textFill="WHITE" />
       <Label layoutX="15.0" layoutY="322.0" text="B" textFill="WHITE" />
       <Label layoutX="15.0" layoutY="266.0" text="C" textFill="WHITE" />
-      <CheckBox layoutX="100.0" layoutY="232.0" mnemonicParsing="false">
+      <CheckBox fx:id="c0" layoutX="178.0" layoutY="286.0" mnemonicParsing="false">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor>
-      </CheckBox>
-      <CheckBox layoutX="139.0" layoutY="232.0" mnemonicParsing="false">
+         </cursor></CheckBox>
+      <CheckBox fx:id="b1" layoutX="217.0" layoutY="341.0" mnemonicParsing="false">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor>
-      </CheckBox>
-      <CheckBox layoutX="256.0" layoutY="231.0" mnemonicParsing="false" />
-      <CheckBox layoutX="217.0" layoutY="232.0" mnemonicParsing="false" />
-      <CheckBox layoutX="178.0" layoutY="286.0" mnemonicParsing="false" />
-      <CheckBox layoutX="178.0" layoutY="232.0" mnemonicParsing="false" />
-      <CheckBox layoutX="139.0" layoutY="286.0" mnemonicParsing="false" />
-      <CheckBox layoutX="217.0" layoutY="341.0" mnemonicParsing="false" />
-      <CheckBox layoutX="178.0" layoutY="342.0" mnemonicParsing="false" />
-      <CheckBox layoutX="139.0" layoutY="342.0" mnemonicParsing="false" />
-      <CheckBox layoutX="100.0" layoutY="342.0" mnemonicParsing="false" />
-      <CheckBox layoutX="100.0" layoutY="286.0" mnemonicParsing="false" />
-      <CheckBox layoutX="256.0" layoutY="286.0" mnemonicParsing="false" />
-      <CheckBox layoutX="217.0" layoutY="285.0" mnemonicParsing="false" />
-      <CheckBox layoutX="486.0" layoutY="231.0" mnemonicParsing="false" />
-      <CheckBox layoutX="447.0" layoutY="231.0" mnemonicParsing="false" />
-      <CheckBox layoutX="408.0" layoutY="231.0" mnemonicParsing="false" />
-      <CheckBox layoutX="369.0" layoutY="231.0" mnemonicParsing="false" />
-      <CheckBox layoutX="330.0" layoutY="231.0" mnemonicParsing="false" />
-      <CheckBox layoutX="292.0" layoutY="231.0" mnemonicParsing="false" />
-      <CheckBox layoutX="486.0" layoutY="340.0" mnemonicParsing="false" />
-      <CheckBox layoutX="447.0" layoutY="341.0" mnemonicParsing="false" />
-      <CheckBox layoutX="408.0" layoutY="341.0" mnemonicParsing="false" />
-      <CheckBox layoutX="369.0" layoutY="340.0" mnemonicParsing="false" />
-      <CheckBox layoutX="330.0" layoutY="340.0" mnemonicParsing="false" />
-      <CheckBox layoutX="291.0" layoutY="340.0" mnemonicParsing="false" />
-      <CheckBox layoutX="486.0" layoutY="285.0" mnemonicParsing="false" />
-      <CheckBox layoutX="447.0" layoutY="285.0" mnemonicParsing="false" />
-      <CheckBox layoutX="409.0" layoutY="285.0" mnemonicParsing="false" />
-      <CheckBox layoutX="369.0" layoutY="285.0" mnemonicParsing="false" />
-      <CheckBox layoutX="330.0" layoutY="285.0" mnemonicParsing="false" />
-      <CheckBox layoutX="292.0" layoutY="285.0" mnemonicParsing="false" />
-      <CheckBox layoutX="256.0" layoutY="340.0" mnemonicParsing="false" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="b0" layoutX="178.0" layoutY="342.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="c2" layoutX="256.0" layoutY="286.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="c1" layoutX="217.0" layoutY="285.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="b6" layoutX="408.0" layoutY="341.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="b5" layoutX="369.0" layoutY="340.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="b4" layoutX="330.0" layoutY="340.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="b3" layoutX="291.0" layoutY="340.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="c6" layoutX="409.0" layoutY="285.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="c5" layoutX="369.0" layoutY="285.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="c4" layoutX="330.0" layoutY="285.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="c3" layoutX="292.0" layoutY="285.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <CheckBox fx:id="b2" layoutX="256.0" layoutY="340.0" mnemonicParsing="false">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></CheckBox>
+      <Button fx:id="booking" layoutX="535.0" layoutY="469.0" mnemonicParsing="false" onAction="#bookingChair" text="Booking" />
+      <ImageView fx:id="chairselect" fitHeight="69.0" fitWidth="39.0" layoutX="389.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/chairselect.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="436.0" layoutY="473.0" text="(จองแล้ว)" textFill="WHITE" />
    </children>
 </AnchorPane>

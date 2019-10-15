@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Cinema {
+
     @FXML
     Button booktheatre1,booktheatre2,booktheatre3,booktheatre4 ;
 
