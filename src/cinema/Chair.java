@@ -14,7 +14,12 @@ public class Chair {
         this.box =  box ;
         this.price = 50 ;
         this.image = image ;
-//        this.image.setImage(new Image("image/chair.png"));
+        this.statusBooking = false ;
+    }
+    public Chair(CheckBox box ,ImageView image,int price){
+        this.box =  box ;
+        this.price = price ;
+        this.image = image ;
         this.statusBooking = false ;
     }
 
