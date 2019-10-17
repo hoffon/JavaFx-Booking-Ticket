@@ -147,7 +147,7 @@ public class Theatre1 implements backToFirstPage {
         Button b = (Button) event.getSource() ;
         Stage s = (Stage) b.getScene().getWindow() ;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-        s.setScene(new Scene(loader.load(),600,658));
+        s.setScene(new Scene(loader.load(),600,600));
         s.show();
     }
     public int getSumPrice() {
@@ -159,4 +159,5 @@ public class Theatre1 implements backToFirstPage {
     public void setSumPrice(int sumPrice) {
         this.sumPrice = sumPrice;
     }
+
 }

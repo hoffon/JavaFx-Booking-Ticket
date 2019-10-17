@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -12,7 +13,9 @@ import java.io.IOException;
 public class Cinema {
 
     @FXML
-    Button booktheatre1,booktheatre2,booktheatre3,booktheatre4 ;
+    Button booktheatre1,booktheatre2,booktheatre3,booktheatre4,
+            gototrailer1,gototrailer2,gototrailer3,gototrailer4 ;
+
 
     @FXML public void bookingTheatre1(ActionEvent event)throws IOException {
         Button b = (Button) event.getSource() ;
@@ -56,11 +59,32 @@ public class Cinema {
         s.setScene(new Scene(loader.load(),600,550));
         s.show();
     }
-    @FXML public void backToFirstPage(ActionEvent event)throws IOException {
+    public void clickGoToTrailer1(ActionEvent event) throws IOException {
         Button b = (Button) event.getSource() ;
         Stage s = (Stage) b.getScene().getWindow() ;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-        s.setScene(new Scene(loader.load(),600,658));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("trailer1.fxml"));
+        s.setScene(new Scene(loader.load(),600,400));
+        s.show();
+    }
+    public void clickGoToTrailer2(ActionEvent event) throws IOException {
+        Button b = (Button) event.getSource() ;
+        Stage s = (Stage) b.getScene().getWindow() ;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("trailer2.fxml"));
+        s.setScene(new Scene(loader.load(),600,400));
+        s.show();
+    }
+    public void clickGoToTrailer3(ActionEvent event) throws IOException {
+        Button b = (Button) event.getSource() ;
+        Stage s = (Stage) b.getScene().getWindow() ;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("trailer3.fxml"));
+        s.setScene(new Scene(loader.load(),600,400));
+        s.show();
+    }
+    public void clickGoToTrailer4(ActionEvent event) throws IOException {
+        Button b = (Button) event.getSource() ;
+        Stage s = (Stage) b.getScene().getWindow() ;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("trailer4.fxml"));
+        s.setScene(new Scene(loader.load(),600,400));
         s.show();
     }
 }
