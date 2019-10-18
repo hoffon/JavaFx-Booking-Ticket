@@ -25,9 +25,9 @@ public class Theatre1 implements backToFirstPage {
 
     private int sumPrice = 0  ;
 
-    ArrayList<Chair> chairs  ;
+    ArrayList<NormalChair> chairs  ;
     ArrayList<String> chairsSelected ;
-    Chair chairC0,chairC1,chairC2,chairC3,chairC4,chairC5,chairC6,
+    NormalChair chairC0,chairC1,chairC2,chairC3,chairC4,chairC5,chairC6,
             chairB0,chairB1,chairB2,chairB3,chairB4,chairB5,chairB6,
     chairA0,chairA1,chairA2,chairA3,chairA4,chairA5,chairA6;
 
@@ -36,27 +36,27 @@ public class Theatre1 implements backToFirstPage {
     @FXML  public void initialize(){
         String fs = File.separator;
         fileBookingTheatre1 = new MyFile(System.getProperty("user.dir")+ fs +"bookingchair" + fs + "chairselectedtheatre1" , "chairbookingtheatre1.txt");
-        chairC0 = new Chair(c0,chairc0);
-        chairC1 = new Chair(c1,chairc1);
-        chairC2 = new Chair(c2,chairc2);
-        chairC3 = new Chair(c3,chairc3);
-        chairC4 = new Chair(c4,chairc4);
-        chairC5 = new Chair(c5,chairc5);
-        chairC6 = new Chair(c6,chairc6);
-        chairB0 = new Chair(b0,chairb0);
-        chairB1 = new Chair(b1,chairb1);
-        chairB2 = new Chair(b2,chairb2);
-        chairB3 = new Chair(b3,chairb3);
-        chairB4 = new Chair(b4,chairb4);
-        chairB5 = new Chair(b5,chairb5);
-        chairB6 = new Chair(b6,chairb6);
-        chairA0 = new Chair(a0,chaira0,100);
-        chairA1 = new Chair(a1,chaira1,100);
-        chairA2 = new Chair(a2,chaira2,100);
-        chairA3 = new Chair(a3,chaira3,100);
-        chairA4 = new Chair(a4,chaira4,100);
-        chairA5 = new Chair(a5,chaira5,100);
-        chairA6 = new Chair(a6,chaira6,100);
+        chairC0 = new NormalChair(c0,chairc0);
+        chairC1 = new NormalChair(c1,chairc1);
+        chairC2 = new NormalChair(c2,chairc2);
+        chairC3 = new NormalChair(c3,chairc3);
+        chairC4 = new NormalChair(c4,chairc4);
+        chairC5 = new NormalChair(c5,chairc5);
+        chairC6 = new NormalChair(c6,chairc6);
+        chairB0 = new NormalChair(b0,chairb0);
+        chairB1 = new NormalChair(b1,chairb1);
+        chairB2 = new NormalChair(b2,chairb2);
+        chairB3 = new NormalChair(b3,chairb3);
+        chairB4 = new NormalChair(b4,chairb4);
+        chairB5 = new NormalChair(b5,chairb5);
+        chairB6 = new NormalChair(b6,chairb6);
+        chairA0 = new NormalChair(a0,chaira0,100);
+        chairA1 = new NormalChair(a1,chaira1,100);
+        chairA2 = new NormalChair(a2,chaira2,100);
+        chairA3 = new NormalChair(a3,chaira3,100);
+        chairA4 = new NormalChair(a4,chaira4,100);
+        chairA5 = new NormalChair(a5,chaira5,100);
+        chairA6 = new NormalChair(a6,chaira6,100);
         chairs = new ArrayList<>() ;
         chairsSelected = new ArrayList<>();
         chairs.add(chairC0) ;
@@ -104,7 +104,7 @@ public class Theatre1 implements backToFirstPage {
         }
     }
     public void bookingChair(ActionEvent event) throws IOException {
-        for (Chair chair : chairs){
+        for (NormalChair chair : chairs){
             if (chair.getBox().isSelected()) {
                 chairSelectedPrice(chair);
             }
@@ -127,7 +127,7 @@ public class Theatre1 implements backToFirstPage {
             Button b = (Button) event.getSource() ;
             Stage s = (Stage) b.getScene().getWindow() ;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-            s.setScene(new Scene(loader.load(),600,658));
+            s.setScene(new Scene(loader.load(),600,600));
             s.show();
         }
         else if (td.getResult().getText().equals("Cancel")) setSumPrice(0);
@@ -153,11 +153,10 @@ public class Theatre1 implements backToFirstPage {
     public int getSumPrice() {
         return sumPrice;
     }
-    public void chairSelectedPrice(Chair price){
-        sumPrice += price.getPrice();
+    public void chairSelectedPrice(NormalChair price){
+        sumPrice += price.getNormalChairPrice();
     }
     public void setSumPrice(int sumPrice) {
         this.sumPrice = sumPrice;
     }
-
 }
