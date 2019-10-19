@@ -80,28 +80,7 @@ public class Theatre1 implements backToFirstPage {
         chairs.add(chairA4);
         chairs.add(chairA5);
         chairs.add(chairA6);
-        try {
-            File file = new File(fileBookingTheatre1.getDirectory());
-            if (!file.exists()) file.mkdirs();
-            FileReader fileReader = new FileReader(fileBookingTheatre1.getFilename());
-            BufferedReader buffer = new BufferedReader(fileReader);
-            String line ;
-            while ((line = buffer.readLine()) != null) {
-                chairsSelected.add(line);
-            }
-            for (Chair chair : chairs) {
-                if (chairsSelected.contains(String.valueOf(chair.getBox()))) {
-                    chair.getBox().setDisable(true);
-                    chair.getImage().setImage(new Image("image/chairselected.png"));
-                }
-            }
-        }
-        catch (FileNotFoundException e){
-            System.err.println("Cannot read file "+fileBookingTheatre1.getFilename());
-        }
-        catch (IOException e){
-            System.err.println("Error reading from file");
-        }
+        readFile();
     }
     public void bookingChair(ActionEvent event) throws IOException {
         for (NormalChair chair : chairs){
@@ -149,6 +128,30 @@ public class Theatre1 implements backToFirstPage {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
         s.setScene(new Scene(loader.load(),600,600));
         s.show();
+    }
+    public void readFile(){
+        try {
+            File file = new File(fileBookingTheatre1.getDirectory());
+            if (!file.exists()) file.mkdirs();
+            FileReader fileReader = new FileReader(fileBookingTheatre1.getFilename());
+            BufferedReader buffer = new BufferedReader(fileReader);
+            String line ;
+            while ((line = buffer.readLine()) != null) {
+                chairsSelected.add(line);
+            }
+            for (Chair chair : chairs) {
+                if (chairsSelected.contains(String.valueOf(chair.getBox()))) {
+                    chair.getBox().setDisable(true);
+                    chair.getImage().setImage(new Image("image/chairselected.png"));
+                }
+            }
+        }
+        catch (FileNotFoundException e){
+            System.err.println("Cannot read file "+fileBookingTheatre1.getFilename());
+        }
+        catch (IOException e){
+            System.err.println("Error reading from file");
+        }
     }
     public int getSumPrice() {
         return sumPrice;
