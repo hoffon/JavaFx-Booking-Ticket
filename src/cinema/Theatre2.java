@@ -4,16 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.ArrayList;
+import java.util.*;
 
 public class Theatre2 implements backToFirstPage{
     @FXML Button backtofirst ,booking;
@@ -27,7 +24,8 @@ public class Theatre2 implements backToFirstPage{
     private int sumPrice = 0  ;
 
     ArrayList<NormalChair> chairs  ;
-    ArrayList<String> chairsSelected,checkBoxes ;
+    ArrayList<String> chairsSelected,checkBoxes,chairUser,user ;
+    HashMap<String,ArrayList<String>> checkUserBooking ;
     NormalChair chairD0,chairD1,chairD2,chairD3,chairD4,chairD5,chairD6,
             chairC0,chairC1,chairC2,chairC3,chairC4,chairC5,chairC6,
             chairB0,chairB1,chairB2,chairB3,chairB4,chairB5,chairB6,
@@ -69,6 +67,9 @@ public class Theatre2 implements backToFirstPage{
         chairs = new ArrayList<>();
         chairsSelected = new ArrayList<>();
         checkBoxes = new ArrayList<>();
+        checkUserBooking = new HashMap<>();
+        chairUser = new ArrayList<>();
+        user = new ArrayList<>() ;
         chairs.add(chairD0);
         chairs.add(chairD1);
         chairs.add(chairD2);
@@ -126,12 +127,13 @@ public class Theatre2 implements backToFirstPage{
                 if (chair.getBox().isSelected()) {
                     chair.getBox().setDisable(true);
                     chair.setStatusBooking(true);
+                    chair.setBookingName(usernameLabel.getText());
                     chair.getImage().setImage(new Image("image/chairselected.png"));
-                    String text = chair.getBox().getId();
+                    String text = chair.getBox().getId() +","+usernameLabel.getText();
                     fileBookingTheatre2.appendWithNewLine(text);
-                    fileBookingTheatre2.save();
                 }
             }
+            fileBookingTheatre2.save();
             Button b = (Button) event.getSource() ;
             Stage s = (Stage) b.getScene().getWindow() ;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
@@ -143,6 +145,42 @@ public class Theatre2 implements backToFirstPage{
         else if (td.getResult().getText().equals("Cancel")) {
             setSumPrice(0);
             checkBoxes.clear();
+        }
+    }
+    public void cancelBooking(){
+        readFileToCancelBooking();
+        if (checkUserBooking.containsKey(usernameLabel.getText())) {
+            if (!checkUserBooking.get(usernameLabel.getText()).isEmpty()) {
+                List<String> choices = new ArrayList<>();
+                Collections.sort(checkUserBooking.get(usernameLabel.getText()));
+                for (String choice : checkUserBooking.get(usernameLabel.getText()))
+                    choices.add(choice);
+
+                ChoiceDialog<String> dialog = new ChoiceDialog<>(checkUserBooking.get(usernameLabel.getText()).get(0), choices);
+                dialog.setTitle("Cancel Booking");
+                dialog.setHeaderText("Choose the chair you will cancel.");
+                dialog.setContentText("Choose your chair:");
+
+                Optional<String> result = dialog.showAndWait();
+                if (result.isPresent()){
+                    checkUserBooking.get(usernameLabel.getText()).remove(result.get());
+                    for (Chair chair : chairs) {
+                        if (chair.getBox().getId().equals(result.get())) {
+                            chair.getBox().setDisable(false);
+                            chair.setStatusBooking(false);
+                            chair.setBookingName("-");
+                            chair.getImage().setImage(new Image("image/chair.png"));
+                        }
+                    }
+                    writeFileAfterCancelBooking();
+                }
+
+            }
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("ไม่พบประวัติการจอง");
+            alert.showAndWait();
         }
     }
     public void mouseClick(){
@@ -176,12 +214,17 @@ public class Theatre2 implements backToFirstPage{
             BufferedReader buffer = new BufferedReader(fileReader);
             String line ;
             while ((line = buffer.readLine()) != null) {
-                chairsSelected.add(line);
-            }
-            for (Chair chair : chairs) {
-                if (chairsSelected.contains(chair.getBox().getId())) {
-                    chair.getBox().setDisable(true);
-                    chair.getImage().setImage(new Image("image/chairselected.png"));
+                String[] data = line.split(",");
+                String chairBox = data[0].trim();
+                String username = data[1].trim();
+                chairsSelected.add(chairBox);
+                if(!user.contains(username)) user.add(username);
+                for (Chair chair : chairs) {
+                    if (chair.getBox().getId().equals(chairBox) ) {
+                        chair.getBox().setDisable(true);
+                        chair.setBookingName(username);
+                        chair.getImage().setImage(new Image("image/chairselected.png"));
+                    }
                 }
             }
         }
@@ -191,6 +234,58 @@ public class Theatre2 implements backToFirstPage{
         catch (IOException e){
             System.err.println("Error reading from file");
         }
-
+    }
+    public void readFileToCancelBooking(){
+        try {
+            File file = new File(fileBookingTheatre2.getDirectory());
+            if (!file.exists()) file.mkdirs();
+            FileReader fileReader = new FileReader(fileBookingTheatre2.getFilename());
+            BufferedReader buffer = new BufferedReader(fileReader);
+            String line ;
+            while ((line = buffer.readLine()) != null) {
+                String[] data = line.split(",");
+                String chairBox = data[0].trim();
+                String username = data[1].trim();
+                if (username.equals(usernameLabel.getText()))
+                    chairUser.add(chairBox);
+                if(!checkUserBooking.containsKey(username) && usernameLabel.getText().equals(username)){
+                    checkUserBooking.put(username,chairUser);
+                }
+            }
+        }
+        catch (FileNotFoundException e){
+            System.err.println("Cannot read file "+fileBookingTheatre2.getFilename());
+        }
+        catch (IOException e){
+            System.err.println("Error reading from file");
+        }
+    }
+    public void writeFileAfterCancelBooking(){
+        FileWriter fileWriter = null;
+        try {
+            fileWriter = new FileWriter(fileBookingTheatre2.getFilename());
+            PrintWriter out = new PrintWriter(fileWriter);
+            for (Chair chair : chairs) {
+                if (chair.getBox().isDisable() && chair.getBookingName().equals(usernameLabel.getText())) {
+                    chair.getBox().setDisable(true);
+                    chair.setStatusBooking(true);
+                    chair.getImage().setImage(new Image("image/chairselected.png"));
+                    String line = chair.getBox().getId() +","+usernameLabel.getText();
+                    out.println(line);
+                }
+                else if(chair.getBox().isDisable() && !chair.getBookingName().equals(usernameLabel.getText())
+                        && user.contains(chair.getBookingName())){
+                    chair.getBox().setDisable(true);
+                    chair.setStatusBooking(true);
+                    chair.getImage().setImage(new Image("image/chairselected.png"));
+                    String line = chair.getBox().getId() +","+chair.getBookingName();
+                    out.println(line);
+                }
+            }
+            out.flush();
+        }
+        catch (IOException e){
+            System.err.println("Error reading from user");
+        }
     }
 }

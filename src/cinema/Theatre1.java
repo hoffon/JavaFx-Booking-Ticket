@@ -86,6 +86,16 @@ public class Theatre1 implements backToFirstPage {
         chairs.add(chairA6);
         readFile();
     }
+    @Override
+    public void backToFirstPage(ActionEvent event) throws IOException {
+        Button b = (Button) event.getSource() ;
+        Stage s = (Stage) b.getScene().getWindow() ;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
+        s.setScene(new Scene(loader.load(),600,573));
+        Cinema userName = loader.getController();
+        userName.setUsername(usernameLabel.getText());
+        s.show();
+    }
     public void bookingChair(ActionEvent event) throws IOException {
         for (NormalChair chair : chairs){
             if (chair.getBox().isSelected()) {
@@ -157,7 +167,6 @@ public class Theatre1 implements backToFirstPage {
             alert.setHeaderText("ไม่พบประวัติการจอง");
             alert.showAndWait();
         }
-
     }
     public void mouseClick(){
         for (Chair chair : chairs){
@@ -168,16 +177,6 @@ public class Theatre1 implements backToFirstPage {
             }
             else chair.getImage().setImage(new Image("image/chair.png"));
         }
-    }
-    @Override
-    public void backToFirstPage(ActionEvent event) throws IOException {
-        Button b = (Button) event.getSource() ;
-        Stage s = (Stage) b.getScene().getWindow() ;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-        s.setScene(new Scene(loader.load(),600,573));
-        Cinema userName = loader.getController();
-        userName.setUsername(usernameLabel.getText());
-        s.show();
     }
     public void readFile(){
         try {
