@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -20,11 +21,12 @@ public class Theatre4 implements backToFirstPage{
     @FXML ImageView chairc0,chairc1,chairc2,chairc3,chairc4,chairc5,chairc6,
             chairb0,chairb1,chairb2,chairb3,chairb4,chairb5,chairb6,
             chaira0,chaira1,chaira2,chaira3,chaira4,chaira5,chaira6;
+    @FXML Label usernameLabel ;
 
     private int sumPrice = 0  ;
 
     ArrayList<Chair3D> chairs  ;
-    ArrayList<String> chairsSelected ;
+    ArrayList<String> chairsSelected,checkBoxes ;
     Chair3D chairC0,chairC1,chairC2,chairC3,chairC4,chairC5,chairC6,
             chairB0,chairB1,chairB2,chairB3,chairB4,chairB5,chairB6,
             chairA0,chairA1,chairA2,chairA3,chairA4,chairA5,chairA6;
@@ -57,6 +59,7 @@ public class Theatre4 implements backToFirstPage{
         chairA6 = new Chair3D(a6, chaira6, 300);
         chairs = new ArrayList<>();
         chairsSelected = new ArrayList<>();
+        checkBoxes = new ArrayList<>();
         chairs.add(chairC0);
         chairs.add(chairC1);
         chairs.add(chairC2);
@@ -85,11 +88,12 @@ public class Theatre4 implements backToFirstPage{
         for (Chair3D chair : chairs){
             if (chair.getBox().isSelected()) {
                 chairSelectedPrice(chair);
+                checkBoxes.add(chair.getBox().getId());
             }
         }
         Alert td = new Alert(Alert.AlertType.CONFIRMATION);
         td.setTitle("ยืนยันการจอง");
-        td.setContentText("ยอดที่ต้องจ่าย " +getSumPrice());
+        td.setContentText("ที่นั่งที่จอง "+checkBoxes+"\nยอดที่ต้องจ่าย " +getSumPrice());
         td.showAndWait();
         if (td.getResult().getText().equals("OK")) {
             for (Chair chair : chairs) {
@@ -97,7 +101,7 @@ public class Theatre4 implements backToFirstPage{
                     chair.getBox().setDisable(true);
                     chair.setStatusBooking(true);
                     chair.getImage().setImage(new Image("image/premiumchairselected.png"));
-                    String text = String.valueOf(chair.getBox());
+                    String text = chair.getBox().getId();
                     fileBookingTheatre4.appendWithNewLine(text);
                     fileBookingTheatre4.save();
                 }
@@ -105,18 +109,25 @@ public class Theatre4 implements backToFirstPage{
             Button b = (Button) event.getSource() ;
             Stage s = (Stage) b.getScene().getWindow() ;
             FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-            s.setScene(new Scene(loader.load(),600,600));
+            s.setScene(new Scene(loader.load(),600,573));
+            Cinema userName = loader.getController();
+            userName.setUsername(usernameLabel.getText());
             s.show();
         }
-        else if (td.getResult().getText().equals("Cancel")) setSumPrice(0);
+        else if (td.getResult().getText().equals("Cancel")) {
+            setSumPrice(0);
+            checkBoxes.clear();
+        }
     }
     public void mouseClick(){
         for (Chair3D chair : chairs){
-            if (chairsSelected.contains(String.valueOf(chair.getBox())) && chair.getChair3DPrice() != 300 )
+            if (chairsSelected.contains(chair.getBox().getId()) && chair.getChair3DPrice() != 300 )
                 chair.getImage().setImage(new Image("image/chairselected.png"));
             else if (chair.getBox().isSelected() && chair.getChair3DPrice() != 300){
                 chair.getImage().setImage(new Image("image/chairselect.png"));
             }
+            else if (chair.getBox().isDisable() && chair.getChair3DPrice() == 300)
+                chair.getImage().setImage(new Image("image/premiumchairselected.png"));
             else if (!chair.getBox().isSelected() && chair.getChair3DPrice() == 300)
                 chair.getImage().setImage(new Image("image/premiumchair.png"));
             else if (chair.getBox().isSelected() && chair.getChair3DPrice() == 300)
@@ -126,11 +137,13 @@ public class Theatre4 implements backToFirstPage{
     }
     public void mouseClickPremium(){
         for (Chair3D chair : chairs){
-            if (chairsSelected.contains(String.valueOf(chair.getBox())) && chair.getChair3DPrice() == 300)
+            if (chairsSelected.contains(chair.getBox().getId()) && chair.getChair3DPrice() == 300)
                 chair.getImage().setImage(new Image("image/premiumchairselected.png"));
             else if (chair.getBox().isSelected() && chair.getChair3DPrice() == 300){
                 chair.getImage().setImage(new Image("image/premiumchairselect.png"));
             }
+            else if (chair.getBox().isDisable() && chair.getChair3DPrice() != 300)
+                chair.getImage().setImage(new Image("image/chairselected.png"));
             else if (!chair.getBox().isSelected() && chair.getChair3DPrice() != 300)
                 chair.getImage().setImage(new Image("image/chair.png"));
             else if (chair.getBox().isSelected() && chair.getChair3DPrice() != 300)
@@ -143,7 +156,9 @@ public class Theatre4 implements backToFirstPage{
         Button b = (Button) event.getSource() ;
         Stage s = (Stage) b.getScene().getWindow() ;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-        s.setScene(new Scene(loader.load(),600,600));
+        s.setScene(new Scene(loader.load(),600,573));
+        Cinema userName = loader.getController();
+        userName.setUsername(usernameLabel.getText());
         s.show();
     }
     public void readFile(){
@@ -157,11 +172,11 @@ public class Theatre4 implements backToFirstPage{
                 chairsSelected.add(line);
             }
             for (Chair3D chair : chairs) {
-                if (chairsSelected.contains(String.valueOf(chair.getBox())) && chair.getChair3DPrice() != 300) {
+                if (chairsSelected.contains(chair.getBox().getId()) && chair.getChair3DPrice() != 300) {
                     chair.getBox().setDisable(true);
                     chair.getImage().setImage(new Image("image/chairselected.png"));
                 }
-                else if  (chairsSelected.contains(String.valueOf(chair.getBox())) && chair.getChair3DPrice() == 300) {
+                else if  (chairsSelected.contains(chair.getBox().getId()) && chair.getChair3DPrice() == 300) {
                     chair.getBox().setDisable(true);
                     chair.getImage().setImage(new Image("image/premiumchairselected.png"));
                 }
@@ -182,5 +197,8 @@ public class Theatre4 implements backToFirstPage{
     }
     public void setSumPrice(int sumPrice) {
         this.sumPrice = sumPrice;
+    }
+    public void setUsername(String username){
+        usernameLabel.setText(username);
     }
 }

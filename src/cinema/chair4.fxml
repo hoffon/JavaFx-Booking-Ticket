@@ -261,5 +261,6 @@
             <Cursor fx:constant="HAND" />
          </cursor></CheckBox>
       <Button fx:id="booking" layoutX="527.0" layoutY="470.0" mnemonicParsing="false" onAction="#bookingChair" text="Booking" />
+      <Label fx:id="usernameLabel" layoutX="547.0" layoutY="76.0" text="Label" visible="false" />
    </children>
 </AnchorPane>

@@ -11,15 +11,15 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinema.Cinema">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="573.0" prefWidth="600.0" style="-fx-background-color: #000000;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinema.Cinema">
    <children>
-      <TabPane layoutX="10.0" layoutY="53.0" prefHeight="543.0" prefWidth="581.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane layoutX="10.0" layoutY="35.0" prefHeight="529.0" prefWidth="581.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Normal">
                <content>
-                  <AnchorPane prefHeight="511.0" prefWidth="581.0" style="-fx-background-color: #ffffff;">
+                  <AnchorPane prefHeight="501.0" prefWidth="0.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <SplitPane dividerPositions="0.29797979797979796" layoutX="8.0" layoutY="14.0" prefHeight="230.0" prefWidth="566.0">
+                        <SplitPane dividerPositions="0.29797979797979796" layoutX="8.0" layoutY="20.0" prefHeight="213.0" prefWidth="566.0">
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
@@ -75,7 +75,7 @@
                                  </children></AnchorPane>
                           </items>
                         </SplitPane>
-                        <SplitPane dividerPositions="0.299645390070922" layoutX="8.0" layoutY="252.0" prefHeight="258.0" prefWidth="566.0">
+                        <SplitPane dividerPositions="0.299645390070922" layoutX="8.0" layoutY="242.0" prefHeight="245.0" prefWidth="566.0">
                           <items>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="266.0" prefWidth="219.0">
                                  <children>
@@ -87,52 +87,54 @@
                                  </children></AnchorPane>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="266.0" prefWidth="338.0">
                                  <children>
-                                    <Label layoutX="14.0" layoutY="19.0" text="Star Wars: Episode V - The Empire Strikes Back">
+                                    <Label layoutX="12.0" layoutY="14.0" text="Star Wars: Episode V - The Empire Strikes Back">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="14.0" layoutY="64.0" text="สตาร์วอร์ส เอพพิโซด 5 จักรวรรดิเอมไพร์โต้กลับ">
+                                    <Label layoutX="18.0" layoutY="51.0" text="สตาร์วอร์ส เอพพิโซด 5 จักรวรรดิเอมไพร์โต้กลับ">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <ImageView fitHeight="41.0" fitWidth="24.0" layoutX="23.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="41.0" fitWidth="24.0" layoutX="23.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../image/tag.png" />
                                        </image>
                                     </ImageView>
-                                    <ImageView fitHeight="28.0" fitWidth="22.0" layoutX="24.0" layoutY="168.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="28.0" fitWidth="22.0" layoutX="24.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../image/time.png" />
                                        </image>
                                     </ImageView>
-                                    <Label layoutX="61.0" layoutY="118.0" text="Action | Adventure | Fantasy | Sci-Fi">
+                                    <Label layoutX="61.0" layoutY="91.0" text="Action | Adventure | Fantasy | Sci-Fi">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="61.0" layoutY="168.0" text="2 ชั่วโมง 4 นาที">
+                                    <Label layoutX="61.0" layoutY="132.0" text="2 ชั่วโมง 4 นาที">
                                        <font>
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="24.0" layoutY="214.0" mnemonicParsing="false" onAction="#bookingTheatre5" text="12.30" />
-                                    <Label layoutX="298.0" layoutY="214.0" text="Theatre 5">
+                                    <Button layoutX="25.0" layoutY="190.0" mnemonicParsing="false" onAction="#bookingTheatre5" text="12.30" />
+                                    <Label layoutX="302.0" layoutY="189.0" text="Theatre 5">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <ImageView fitHeight="34.0" fitWidth="23.0" layoutX="272.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="34.0" fitWidth="23.0" layoutX="271.0" layoutY="191.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../image/theater.png" />
                                        </image>
                                     </ImageView>
-                                    <Button layoutX="78.0" layoutY="214.0" mnemonicParsing="false" text="trailer" />
+                                    <Button layoutX="79.0" layoutY="190.0" mnemonicParsing="false" text="trailer" />
                                  </children>
                               </AnchorPane>
                           </items>
                         </SplitPane>
+                        <Label fx:id="usernameLabel" layoutX="515.0" layoutY="4.0" text="Label" />
+                        <Label layoutX="447.0" layoutY="4.0" text="Welcome" />
                      </children>
                   </AnchorPane>
                </content></Tab>
@@ -140,7 +142,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <SplitPane dividerPositions="0.29797979797979796" layoutX="8.0" layoutY="14.0" prefHeight="241.0" prefWidth="566.0">
+                        <SplitPane dividerPositions="0.29797979797979796" layoutX="8.0" layoutY="22.0" prefHeight="228.0" prefWidth="566.0">
                            <items>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
@@ -151,7 +153,7 @@
                                     </ImageView>
                                  </children>
                               </AnchorPane>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="239.0" prefWidth="366.0">
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="232.0" prefWidth="393.0">
                                  <children>
                                     <Label layoutX="14.0" layoutY="14.0" text="Star Wars: Episode VI - Return of the Jedi">
                                        <font>
@@ -203,7 +205,7 @@
                                  </children></AnchorPane>
                            </items>
                         </SplitPane>
-                        <SplitPane dividerPositions="0.29797979797979796" layoutX="8.0" layoutY="266.0" prefHeight="241.0" prefWidth="566.0">
+                        <SplitPane dividerPositions="0.29797979797979796" layoutX="8.0" layoutY="256.0" prefHeight="230.0" prefWidth="566.0">
                            <items>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
@@ -266,15 +268,16 @@
                                  </children></AnchorPane>
                            </items>
                         </SplitPane>
+                        <Label fx:id="usernameLabel1" layoutX="515.0" layoutY="7.0" text="Label" />
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
             <Tab text="4K Movie">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="540.0" prefWidth="581.0" style="-fx-background-color: #ffffff;">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="469.0" prefWidth="524.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <SplitPane dividerPositions="0.29797979797979796" layoutX="8.0" layoutY="14.0" prefHeight="241.0" prefWidth="566.0">
+                        <SplitPane dividerPositions="0.29797979797979796" layoutX="8.0" layoutY="23.0" prefHeight="223.0" prefWidth="566.0">
                            <items>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
@@ -337,7 +340,7 @@
                                  </children></AnchorPane>
                            </items>
                         </SplitPane>
-                        <SplitPane dividerPositions="0.29797979797979796" layoutX="8.0" layoutY="267.0" prefHeight="241.0" prefWidth="566.0">
+                        <SplitPane dividerPositions="0.29797979797979796" layoutX="8.0" layoutY="260.0" prefHeight="226.0" prefWidth="566.0">
                            <items>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                                  <children>
@@ -400,6 +403,7 @@
                                  </children></AnchorPane>
                            </items>
                         </SplitPane>
+                        <Label fx:id="usernameLabel2" layoutX="515.0" layoutY="6.0" text="Label" />
                      </children>
                   </AnchorPane>
               </content>
@@ -436,9 +440,9 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Label layoutX="201.0" layoutY="3.0" text="Booking Movie" textFill="WHITE">
+      <Label layoutX="221.0" text="Booking Movie" textFill="WHITE">
          <font>
-            <Font size="30.0" />
+            <Font size="24.0" />
          </font>
       </Label>
    </children>

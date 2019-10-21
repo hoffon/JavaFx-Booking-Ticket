@@ -8,11 +8,13 @@ public class Chair {
     private CheckBox box ;
     private ImageView image ;
     private boolean statusBooking ;
+    private String bookingName ;
 
     public Chair(CheckBox box ,ImageView image){
         this.box =  box ;
         this.image = image ;
         this.statusBooking = false ;
+        this.bookingName = "-" ;
     }
     public CheckBox getBox() {
         return box;
@@ -32,6 +34,14 @@ public class Chair {
 
     public void setStatusBooking(boolean statusBooking) {
         this.statusBooking = statusBooking;
+    }
+
+    public String getBookingName() {
+        return bookingName;
+    }
+
+    public void setBookingName(String bookingName) {
+        this.bookingName = bookingName;
     }
 }
 

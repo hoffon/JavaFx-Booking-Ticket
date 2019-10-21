@@ -22,7 +22,7 @@ public class Theatre5 implements backToFirstPage{
         Button b = (Button) event.getSource() ;
         Stage s = (Stage) b.getScene().getWindow() ;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-        s.setScene(new Scene(loader.load(),600,658));
+        s.setScene(new Scene(loader.load(),600,573));
         s.show();
     }
 }

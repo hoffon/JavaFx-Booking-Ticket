@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -19,6 +20,7 @@ public class Trailer2 implements Initializable,backToFirstPage {
 
     @FXML Button playButton,pauseButton,backToFirstPage ;
     @FXML MediaView vdo ;
+    @FXML Label usernameLabel ;
 
     MediaPlayer mediaPlayer ;
     @Override
@@ -35,6 +37,9 @@ public class Trailer2 implements Initializable,backToFirstPage {
     @FXML public void clickStop(){
         mediaPlayer.pause();
     }
+    public void setUsername(String username){
+        usernameLabel.setText(username);
+    }
 
     @Override
     public void backToFirstPage(ActionEvent event) throws IOException {
@@ -42,7 +47,9 @@ public class Trailer2 implements Initializable,backToFirstPage {
         Button b = (Button) event.getSource() ;
         Stage s = (Stage) b.getScene().getWindow() ;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-        s.setScene(new Scene(loader.load(),600,600));
+        s.setScene(new Scene(loader.load(),600,573));
+        Cinema userName = loader.getController();
+        userName.setUsername(usernameLabel.getText());
         s.show();
     }
 

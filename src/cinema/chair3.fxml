@@ -197,5 +197,6 @@
       <CheckBox fx:id="b2" layoutX="256.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#mouseClick" />
       <CheckBox fx:id="b1" layoutX="217.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#mouseClick" />
       <CheckBox fx:id="b0" layoutX="178.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#mouseClick" />
+      <Label fx:id="usernameLabel" layoutX="547.0" layoutY="76.0" text="Label" visible="false" />
    </children>
 </AnchorPane>

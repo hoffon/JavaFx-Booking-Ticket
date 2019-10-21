@@ -38,6 +38,7 @@
             </ImageView>
             <Label layoutX="78.0" layoutY="16.0" text="Normal" textFill="#c7c7c7" />
             <Button fx:id="backtofirst" layoutX="545.0" layoutY="12.0" mnemonicParsing="false" onAction="#backToFirstPage" text="Back" />
+            <Button fx:id="cancelBookingButton" layoutX="399.0" layoutY="12.0" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking" />
          </children>
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c0c0c0" height="39.0" layoutX="135.0" layoutY="89.0" stroke="#b1b1b1" strokeType="INSIDE" width="325.0">
@@ -269,5 +270,6 @@
          </image>
       </ImageView>
       <Label layoutX="343.0" layoutY="473.0" text="(จองแล้ว)" textFill="#f6f6f6" />
+      <Label fx:id="usernameLabel" layoutX="521.0" layoutY="56.0" text="Label" visible="false" />
    </children>
 </AnchorPane>

@@ -85,9 +85,7 @@ public class RegisterPage {
                     if (result.get() == ButtonType.OK){
                         createAccount();
                         backToLogin(event);
-                  } //else {
-//                        // ... user chose CANCEL or closed the dialog
-//                    }
+                  }
                 }
         }
 
