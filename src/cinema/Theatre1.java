@@ -113,7 +113,6 @@ public class Theatre1 implements backToFirstPage {
                     chair.getBox().setDisable(true);
                     chair.setStatusBooking(true);
                     chair.setBookingName(usernameLabel.getText());
-                    chair.getImage().setImage(new Image("image/chairselected.png"));
                     String text = chair.getBox().getId() +","+usernameLabel.getText();
                     fileBookingTheatre1.appendWithNewLine(text);
                 }
