@@ -18,7 +18,7 @@ public class Theatre4 implements backToFirstPage{
     @FXML ImageView chairc0,chairc1,chairc2,chairc3,chairc4,chairc5,chairc6,
             chairb0,chairb1,chairb2,chairb3,chairb4,chairb5,chairb6,
             chaira0,chaira1,chaira2,chaira3,chaira4,chaira5,chaira6;
-    @FXML Label usernameLabel ;
+    @FXML Label usernameLabel,movieName,theatreName,timeshowLabel ;
 
     private int sumPrice = 0  ;
 
@@ -111,7 +111,8 @@ public class Theatre4 implements backToFirstPage{
                     chair.getBox().setDisable(true);
                     chair.setStatusBooking(true);
                     chair.setBookingName(usernameLabel.getText());
-                    String text = chair.getBox().getId() +","+usernameLabel.getText();
+                    String text = usernameLabel.getText()+","+movieName.getText()+","+timeshowLabel.getText()+
+                            ","+theatreName.getText()+","+chair.getBox().getId() ;
                     fileBookingTheatre4.appendWithNewLine(text);
                 }
             }
@@ -136,7 +137,7 @@ public class Theatre4 implements backToFirstPage{
                 List<String> choices = new ArrayList<>();
                 Collections.sort(checkUserBooking.get(usernameLabel.getText()));
                 for (String choice : checkUserBooking.get(usernameLabel.getText()))
-                    choices.add(choice);
+                    if(!choices.contains(choice)) choices.add(choice);
 
                 ChoiceDialog<String> dialog = new ChoiceDialog<>(checkUserBooking.get(usernameLabel.getText()).get(0), choices);
                 dialog.setTitle("Cancel Booking");
@@ -146,6 +147,7 @@ public class Theatre4 implements backToFirstPage{
                 Optional<String> result = dialog.showAndWait();
                 if (result.isPresent()){
                     checkUserBooking.get(usernameLabel.getText()).remove(result.get());
+                    chairsSelected.remove(result.get());
                     for (Chair3D chair : chairs) {
                         if (chair.getBox().getId().equals(result.get())) {
                             chair.getBox().setDisable(false);
@@ -208,8 +210,8 @@ public class Theatre4 implements backToFirstPage{
             String line ;
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                String chairBox = data[0].trim();
-                String username = data[1].trim();
+                String chairBox = data[4].trim();
+                String username = data[0].trim();
                 chairsSelected.add(chairBox);
                 if(!user.contains(username)) user.add(username);
                 for (Chair3D chair : chairs) {
@@ -242,10 +244,10 @@ public class Theatre4 implements backToFirstPage{
             String line ;
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                String chairBox = data[0].trim();
-                String username = data[1].trim();
+                String chairBox = data[4].trim();
+                String username = data[0].trim();
                 if (username.equals(usernameLabel.getText()))
-                    chairUser.add(chairBox);
+                    if(!chairUser.contains(chairBox)) chairUser.add(chairBox);
                 if(!checkUserBooking.containsKey(username) && usernameLabel.getText().equals(username)){
                     checkUserBooking.put(username,chairUser);
                 }
@@ -269,14 +271,16 @@ public class Theatre4 implements backToFirstPage{
                         chair.getBox().setDisable(true);
                         chair.setStatusBooking(true);
                         chair.getImage().setImage(new Image("image/chairselected.png"));
-                        String line = chair.getBox().getId() + "," + usernameLabel.getText();
+                        String line = chair.getBookingName()+","+movieName.getText()+","+timeshowLabel.getText()+
+                                ","+theatreName.getText()+","+chair.getBox().getId() ;
                         out.println(line);
                     }
                     else{
                         chair.getBox().setDisable(true);
                         chair.setStatusBooking(true);
                         chair.getImage().setImage(new Image("image/premiumchairselected.png"));
-                        String line = chair.getBox().getId() + "," + usernameLabel.getText();
+                        String line = chair.getBookingName()+","+movieName.getText()+","+timeshowLabel.getText()+
+                                ","+theatreName.getText()+","+chair.getBox().getId() ;
                         out.println(line);
                     }
                 }
@@ -286,14 +290,16 @@ public class Theatre4 implements backToFirstPage{
                         chair.getBox().setDisable(true);
                         chair.setStatusBooking(true);
                         chair.getImage().setImage(new Image("image/chairselected.png"));
-                        String line = chair.getBox().getId() +","+chair.getBookingName();
+                        String line = chair.getBookingName()+","+movieName.getText()+","+timeshowLabel.getText()+
+                                ","+theatreName.getText()+","+chair.getBox().getId() ;
                         out.println(line);
                     }
                     else{
                         chair.getBox().setDisable(true);
                         chair.setStatusBooking(true);
                         chair.getImage().setImage(new Image("image/premiumchairselected.png"));
-                        String line = chair.getBox().getId() +","+chair.getBookingName();
+                        String line = chair.getBookingName()+","+movieName.getText()+","+timeshowLabel.getText()+
+                                ","+theatreName.getText()+","+chair.getBox().getId() ;
                         out.println(line);
                     }
                 }
@@ -315,5 +321,8 @@ public class Theatre4 implements backToFirstPage{
     }
     public void setUsername(String username){
         usernameLabel.setText(username);
+    }
+    public void setTimeshowLabel(String timeshow){
+        timeshowLabel.setText(timeshow);
     }
 }

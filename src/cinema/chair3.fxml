@@ -16,12 +16,12 @@
    <children>
       <Pane prefHeight="49.0" prefWidth="600.0" style="-fx-background-color: #000000;">
          <children>
-            <Label layoutX="112.0" layoutY="10.0" text="Star Wars: Episode III - Revenge of the Sith" textFill="WHITE">
+            <Label fx:id="movieName" layoutX="112.0" layoutY="10.0" text="Star Wars: Episode III - Revenge of the Sith" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="503.0" layoutY="10.0" text="Theatre 3" textFill="#d8cd29">
+            <Label fx:id="theatreName" layoutX="503.0" layoutY="10.0" text="Theatre 3" textFill="#d8cd29">
                <font>
                   <Font size="20.0" />
                </font>
@@ -43,7 +43,7 @@
             </ImageView>
             <Label layoutX="243.0" layoutY="16.0" text="VIP" textFill="#c7c7c7" />
             <Button fx:id="backtofirst" layoutX="545.0" layoutY="12.0" mnemonicParsing="false" onAction="#backToFirstPage" text="Back" />
-            <Button fx:id="cancelBookingButton" layoutX="422.0" layoutY="11.0" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking" />
+            <Button fx:id="cancelBookingButton" layoutX="429.0" layoutY="12.0" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking" />
          </children>
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c0c0c0" height="39.0" layoutX="135.0" layoutY="89.0" stroke="#b1b1b1" strokeType="INSIDE" width="325.0">
@@ -199,5 +199,28 @@
       <CheckBox fx:id="b1" layoutX="217.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#mouseClick" />
       <CheckBox fx:id="b0" layoutX="178.0" layoutY="276.0" mnemonicParsing="false" onMouseClicked="#mouseClick" />
       <Label fx:id="usernameLabel" layoutX="547.0" layoutY="76.0" text="Label" visible="false" />
+      <Label layoutX="320.0" layoutY="483.0" text="(จองแล้ว)" textFill="#f6f6f6" />
+      <Label layoutX="446.0" layoutY="483.0" text="(เลือกเก้าอี้นี้)" textFill="WHITE" />
+      <ImageView fitHeight="93.0" fitWidth="39.0" layoutX="246.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/chairselected.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="chairselect" fitHeight="69.0" fitWidth="39.0" layoutX="360.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/chairselect.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="chairselect1" fitHeight="69.0" fitWidth="39.0" layoutX="399.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/vipselect.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="93.0" fitWidth="39.0" layoutX="281.0" layoutY="462.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/vipchairselected.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="timeshowLabel" layoutX="541.0" layoutY="144.0" text="timeshow" visible="false" />
    </children>
 </AnchorPane>

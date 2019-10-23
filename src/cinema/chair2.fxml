@@ -16,12 +16,12 @@
    <children>
       <Pane prefHeight="49.0" prefWidth="600.0" style="-fx-background-color: #000000;">
          <children>
-            <Label layoutX="109.0" layoutY="10.0" text="Star Wars: Episode II - Attack of the Clones " textFill="WHITE">
+            <Label fx:id="movieName" layoutX="109.0" layoutY="10.0" text="Star Wars: Episode II - Attack of the Clones " textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="503.0" layoutY="10.0" text="Theatre 2" textFill="#d8cd29">
+            <Label fx:id="theatreName" layoutX="503.0" layoutY="10.0" text="Theatre 2" textFill="#d8cd29">
                <font>
                   <Font size="20.0" />
                </font>
@@ -249,5 +249,6 @@
       <CheckBox fx:id="a0" layoutX="178.0" layoutY="419.0" mnemonicParsing="false" onAction="#mouseClick" />
       <CheckBox fx:id="a6" layoutX="408.0" layoutY="419.0" mnemonicParsing="false" onAction="#mouseClick" />
       <Label fx:id="usernameLabel" layoutX="527.0" layoutY="56.0" text="Label" visible="false" />
+      <Label fx:id="timeshowLabel" layoutX="541.0" layoutY="144.0" text="timeshow" visible="false" />
    </children>
 </AnchorPane>

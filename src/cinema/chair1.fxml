@@ -17,12 +17,12 @@
    <children>
       <Pane prefHeight="49.0" prefWidth="600.0" style="-fx-background-color: #000000;">
          <children>
-            <Label layoutX="258.0" layoutY="10.0" text="Star Wars" textFill="WHITE">
+            <Label fx:id="movieName" layoutX="258.0" layoutY="10.0" text="Star Wars" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="503.0" layoutY="10.0" text="Theatre 1" textFill="#d8cd29">
+            <Label fx:id="theatreName" layoutX="503.0" layoutY="10.0" text="Theatre 1" textFill="#d8cd29">
                <font>
                   <Font size="20.0" />
                </font>
@@ -270,6 +270,7 @@
          </image>
       </ImageView>
       <Label layoutX="343.0" layoutY="473.0" text="(จองแล้ว)" textFill="#f6f6f6" />
-      <Label fx:id="usernameLabel" layoutX="521.0" layoutY="56.0" text="Label" visible="false" />
+      <Label fx:id="usernameLabel" layoutX="521.0" layoutY="56.0" text="username" visible="false" />
+      <Label fx:id="timeshowLabel" layoutX="531.0" layoutY="134.0" text="timeshow" visible="false" />
    </children>
 </AnchorPane>

@@ -1,5 +1,7 @@
 package cinema;
 
+import javafx.application.Application;
+import javafx.application.HostServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Trailer3 implements Initializable,backToFirstPage {
+public class Trailer3 extends Application implements Initializable,backToFirstPage {
 
     @FXML Button playButton,pauseButton,backToFirstPage ;
     @FXML MediaView vdo ;
@@ -25,8 +27,8 @@ public class Trailer3 implements Initializable,backToFirstPage {
     MediaPlayer mediaPlayer ;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        String vdoUrl = "file:/C:/Users/Natakit/Desktop/Cinema/src/vdo/trailer3.mp4";
-        Media media  = new Media((vdoUrl));
+        String services = getHostServices().getDocumentBase() ;
+        Media media = new Media(services + "/src/vdo/trailer3.mp4");
         mediaPlayer = new MediaPlayer(media);
         vdo.setMediaPlayer(mediaPlayer);
     }
@@ -53,4 +55,8 @@ public class Trailer3 implements Initializable,backToFirstPage {
         s.show();
     }
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+
+    }
 }

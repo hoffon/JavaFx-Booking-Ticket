@@ -14,7 +14,7 @@ import java.util.*;
 
 public class Theatre2 implements backToFirstPage{
     @FXML Button backtofirst ,booking,cancelBookingButton;
-    @FXML Label usernameLabel ;
+    @FXML Label usernameLabel,timeshowLabel,movieName,theatreName ;
     @FXML CheckBox d0,d1,d2,d3,d4,d5,d6,c0,c1,c2,c3,c4,c5,c6,b0,b1,b2,b3,b4,b5,b6,a0,a1,a2,a3,a4,a5,a6 ;
     @FXML ImageView chaird0,chaird1,chaird2,chaird3,chaird4,chaird5,chaird6,
             chairc0,chairc1,chairc2,chairc3,chairc4,chairc5,chairc6,
@@ -128,8 +128,8 @@ public class Theatre2 implements backToFirstPage{
                     chair.getBox().setDisable(true);
                     chair.setStatusBooking(true);
                     chair.setBookingName(usernameLabel.getText());
-                    chair.getImage().setImage(new Image("image/chairselected.png"));
-                    String text = chair.getBox().getId() +","+usernameLabel.getText();
+                    String text = usernameLabel.getText()+","+movieName.getText()+","+timeshowLabel.getText()+
+                            ","+theatreName.getText()+","+chair.getBox().getId() ;
                     fileBookingTheatre2.appendWithNewLine(text);
                 }
             }
@@ -154,7 +154,7 @@ public class Theatre2 implements backToFirstPage{
                 List<String> choices = new ArrayList<>();
                 Collections.sort(checkUserBooking.get(usernameLabel.getText()));
                 for (String choice : checkUserBooking.get(usernameLabel.getText()))
-                    choices.add(choice);
+                    if(!choices.contains(choice)) choices.add(choice);
 
                 ChoiceDialog<String> dialog = new ChoiceDialog<>(checkUserBooking.get(usernameLabel.getText()).get(0), choices);
                 dialog.setTitle("Cancel Booking");
@@ -164,6 +164,7 @@ public class Theatre2 implements backToFirstPage{
                 Optional<String> result = dialog.showAndWait();
                 if (result.isPresent()){
                     checkUserBooking.get(usernameLabel.getText()).remove(result.get());
+                    chairsSelected.remove(result.get());
                     for (Chair chair : chairs) {
                         if (chair.getBox().getId().equals(result.get())) {
                             chair.getBox().setDisable(false);
@@ -205,6 +206,9 @@ public class Theatre2 implements backToFirstPage{
     public void setUsername(String username){
         usernameLabel.setText(username);
     }
+    public void setTimeshowLabel(String timeshow){
+        timeshowLabel.setText(timeshow);
+    }
 
     public void readFile(){
         try {
@@ -215,8 +219,8 @@ public class Theatre2 implements backToFirstPage{
             String line ;
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                String chairBox = data[0].trim();
-                String username = data[1].trim();
+                String chairBox = data[4].trim();
+                String username = data[0].trim();
                 chairsSelected.add(chairBox);
                 if(!user.contains(username)) user.add(username);
                 for (Chair chair : chairs) {
@@ -244,10 +248,10 @@ public class Theatre2 implements backToFirstPage{
             String line ;
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                String chairBox = data[0].trim();
-                String username = data[1].trim();
+                String chairBox = data[4].trim();
+                String username = data[0].trim();
                 if (username.equals(usernameLabel.getText()))
-                    chairUser.add(chairBox);
+                    if(!chairUser.contains(chairBox)) chairUser.add(chairBox);
                 if(!checkUserBooking.containsKey(username) && usernameLabel.getText().equals(username)){
                     checkUserBooking.put(username,chairUser);
                 }
@@ -270,7 +274,8 @@ public class Theatre2 implements backToFirstPage{
                     chair.getBox().setDisable(true);
                     chair.setStatusBooking(true);
                     chair.getImage().setImage(new Image("image/chairselected.png"));
-                    String line = chair.getBox().getId() +","+usernameLabel.getText();
+                    String line = usernameLabel.getText()+","+movieName.getText()+","+timeshowLabel.getText()+
+                            ","+theatreName.getText()+","+chair.getBox().getId() ;
                     out.println(line);
                 }
                 else if(chair.getBox().isDisable() && !chair.getBookingName().equals(usernameLabel.getText())
@@ -278,7 +283,8 @@ public class Theatre2 implements backToFirstPage{
                     chair.getBox().setDisable(true);
                     chair.setStatusBooking(true);
                     chair.getImage().setImage(new Image("image/chairselected.png"));
-                    String line = chair.getBox().getId() +","+chair.getBookingName();
+                    String line = chair.getBookingName()+","+movieName.getText()+","+timeshowLabel.getText()+
+                            ","+theatreName.getText()+","+chair.getBox().getId() ;
                     out.println(line);
                 }
             }
