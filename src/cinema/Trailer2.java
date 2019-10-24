@@ -25,32 +25,32 @@ public class Trailer2 extends Application implements Initializable,backToFirstPa
 
     MediaPlayer mediaPlayer ;
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources) { //method เริ่มต้น เมื่อเปิดย้ายsceneมายังหน้านี้จะสร้าง mediaViewพร้อมตัวอย่างหนังของsenceนี้
         String services = getHostServices().getDocumentBase() ;
-        Media media = new Media(services + "/src/vdo/trailer2.mp4");
+        Media media = new Media(services + "/vdo/trailer2.mp4");
         mediaPlayer = new MediaPlayer(media);
         vdo.setMediaPlayer(mediaPlayer);
     }
 
     @FXML public void clickPlay(){
         mediaPlayer.play();
-    }
+    }// play video when user click play button
     @FXML public void clickStop(){
         mediaPlayer.pause();
-    }
+    }// pause video when user click pause button
     public void setUsername(String username){
         usernameLabel.setText(username);
     }
 
     @Override
-    public void backToFirstPage(ActionEvent event) throws IOException {
-        mediaPlayer.stop();
+    public void backToFirstPage(ActionEvent event) throws IOException {// back to mockupmovie.fxml
+        mediaPlayer.stop();                                              // and stop video
         Button b = (Button) event.getSource() ;
         Stage s = (Stage) b.getScene().getWindow() ;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-        s.setScene(new Scene(loader.load(),600,573));
+        s.setScene(new Scene(loader.load(),600,573));//set Scene size
         Cinema userName = loader.getController();
-        userName.setUsername(usernameLabel.getText());
+        userName.setUsername(usernameLabel.getText());//send username to Cinema
         s.show();
     }
 

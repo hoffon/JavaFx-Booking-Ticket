@@ -10,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LoginPage {
@@ -31,9 +30,6 @@ public class LoginPage {
             String line;
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                String firstname = data[0].trim();
-                String lastname = data[1].trim();
-                String email = data[2].trim();
                 String username = data[3].trim();
                 String password = data[4].trim();
                 check.put(username,password);

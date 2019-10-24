@@ -34,11 +34,7 @@ public class RegisterPage {
             String line;
             while ((line = buffer.readLine()) != null) {
                 String[] data = line.split(",");
-                String firstname = data[0].trim();
-                String lastname = data[1].trim();
-                String email = data[2].trim();
                 String username = data[3].trim();
-                String password = data[4].trim();
                 check.add(username);
             }
         }
