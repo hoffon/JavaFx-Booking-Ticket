@@ -36,6 +36,8 @@ public class Cinema implements Initializable {
     private MyFile fileBookingTheatre2 = new MyFile(System.getProperty("user.dir")+ fs +"bookingchair" + fs + "chairselectedtheatre2" , "chairbookingtheatre2.txt");
     private MyFile fileBookingTheatre3 = new MyFile(System.getProperty("user.dir")+ fs +"bookingchair" + fs + "chairselectedtheatre3" , "chairbookingtheatre3.txt");
     private MyFile fileBookingTheatre4 = new MyFile(System.getProperty("user.dir")+ fs +"bookingchair" + fs + "chairselectedtheatre4" , "chairbookingtheatre4.txt");
+    private MyFile fileBookingTheatre5 = new MyFile(System.getProperty("user.dir")+ fs +"bookingchair" + fs + "chairselectedtheatre5" , "chairbookingtheatre5.txt");
+    private MyFile fileBookingTheatre6 = new MyFile(System.getProperty("user.dir")+ fs +"bookingchair" + fs + "chairselectedtheatre6" , "chairbookingtheatre6.txt");
 
 
     @Override
@@ -96,8 +98,8 @@ public class Cinema implements Initializable {
         Stage s = (Stage) b.getScene().getWindow() ;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("chair5.fxml"));
         s.setScene(new Scene(loader.load(),600,550));// set Scene size
-//        Theatre5 userName = loader.getController();
-//        userName.setUsername(usernameLabel.getText());
+        Theatre5 userName = loader.getController();
+        userName.setUsername(usernameLabel.getText());
         s.show();
     }
     @FXML public void bookingTheatre6(ActionEvent event)throws IOException {//go to chair6.fxml จองหนังในโรงที่ 6
@@ -105,8 +107,8 @@ public class Cinema implements Initializable {
         Stage s = (Stage) b.getScene().getWindow() ;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("chair6.fxml"));
         s.setScene(new Scene(loader.load(),600,550));// set Scene size
-//        Theatre6 userName = loader.getController();
-//        userName.setUsername(usernameLabel.getText());
+        Theatre6 userName = loader.getController();
+        userName.setUsername(usernameLabel.getText());
         s.show();
     }
     public void clickGoToTrailer1(ActionEvent event) throws IOException {//go to trailer1.fxml ดูตัวอย่างหนังของหนังโรงที่ 1
@@ -161,10 +163,16 @@ public class Cinema implements Initializable {
             BufferedReader buffer3 = new BufferedReader(fileReader3);
             FileReader fileReader4 = new FileReader(fileBookingTheatre4.getFilename());
             BufferedReader buffer4 = new BufferedReader(fileReader4);
+            FileReader fileReader5 = new FileReader(fileBookingTheatre5.getFilename());
+            BufferedReader buffer5 = new BufferedReader(fileReader5);
+            FileReader fileReader6 = new FileReader(fileBookingTheatre6.getFilename());
+            BufferedReader buffer6 = new BufferedReader(fileReader6);
             buff.add(buffer1);
             buff.add(buffer2);
             buff.add(buffer3);
             buff.add(buffer4);
+            buff.add(buffer5);
+            buff.add(buffer6);
 
             String line ;
         for (BufferedReader bufferedReader : buff) {

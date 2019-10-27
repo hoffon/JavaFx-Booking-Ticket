@@ -427,7 +427,6 @@
                                     <TableColumn fx:id="chairColumn" prefWidth="70.66668701171875" text="Booking" />
                                 </columns>
                               </TableView>
-                              <Button fx:id="csv1" layoutX="388.0" layoutY="467.0" mnemonicParsing="false" onAction="#saveCsv" text="save csv" />
                               <Button layoutX="493.0" layoutY="467.0" mnemonicParsing="false" onAction="#btnupdateCsvTable" text="Update" />
                            </children>
                         </AnchorPane>
