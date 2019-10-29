@@ -146,7 +146,27 @@ public class Cinema implements Initializable {
         Trailer4 userName = loader.getController();
         userName.setUsername(usernameLabel.getText());//send username to Trailer 4
         s.show();
-    }public void setUsername(String username){//set username
+    }
+    public void clickGoToTrailer5(ActionEvent event) throws IOException {//go to trailer4.fxml ดูตัวอย่างหนังของหนังโรงที่ 5
+        Button b = (Button) event.getSource() ;
+        Stage s = (Stage) b.getScene().getWindow() ;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("trailer5.fxml"));
+        s.setScene(new Scene(loader.load(),600,400)); // set Scene size
+        Trailer5 userName = loader.getController();
+        userName.setUsername(usernameLabel.getText());//send username to Trailer 5
+        s.show();
+    }
+    public void clickGoToTrailer6(ActionEvent event) throws IOException {//go to trailer4.fxml ดูตัวอย่างหนังของหนังโรงที่ 6
+        Button b = (Button) event.getSource() ;
+        Stage s = (Stage) b.getScene().getWindow() ;
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("trailer6.fxml"));
+        s.setScene(new Scene(loader.load(),600,400)); // set Scene size
+        Trailer6 userName = loader.getController();
+        userName.setUsername(usernameLabel.getText());//send username to Trailer 6
+        s.show();
+    }
+
+    public void setUsername(String username){//set username
         usernameLabel.setText(username);
     }
     public void btnupdateCsvTable() throws IOException { // save BookingData.csv after user booking or cancel bookingchair

@@ -130,7 +130,7 @@
                                           <Image url="@../image/theater.png" />
                                        </image>
                                     </ImageView>
-                                    <Button layoutX="79.0" layoutY="190.0" mnemonicParsing="false" text="trailer" />
+                                    <Button fx:id="gototrailer5" layoutX="79.0" layoutY="190.0" mnemonicParsing="false" onAction="#clickGoToTrailer5" text="trailer" />
                                  </children>
                               </AnchorPane>
                           </items>
@@ -266,7 +266,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="67.0" layoutY="194.0" mnemonicParsing="false" text="trailer" />
+                                    <Button fx:id="gototrailer6" layoutX="67.0" layoutY="194.0" mnemonicParsing="false" onAction="#clickGoToTrailer6" text="trailer" />
                                  </children></AnchorPane>
                            </items>
                         </SplitPane>
