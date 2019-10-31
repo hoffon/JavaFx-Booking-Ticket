@@ -36,9 +36,19 @@
                   <Image url="@../image/chair.png" />
                </image>
             </ImageView>
-            <Label layoutX="78.0" layoutY="16.0" text="Normal" textFill="#c7c7c7" />
+            <Label layoutX="78.0" layoutY="6.0" text="Normal" textFill="#c7c7c7" />
             <Button fx:id="backtofirst" layoutX="545.0" layoutY="12.0" mnemonicParsing="false" onAction="#backToFirstPage" text="Back" />
             <Button fx:id="cancelBookingButton" layoutX="399.0" layoutY="12.0" mnemonicParsing="false" onAction="#cancelBooking" text="Cancel Booking" />
+            <Label layoutX="81.0" layoutY="20.0" text="A : 100" textFill="#c7c7c7">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label layoutX="79.0" layoutY="30.0" text="B,C : 50" textFill="#c7c7c7">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c0c0c0" height="39.0" layoutX="135.0" layoutY="89.0" stroke="#b1b1b1" strokeType="INSIDE" width="325.0">

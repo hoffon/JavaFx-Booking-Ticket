@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class Cinema implements Initializable {
 
     @FXML
-    Button booktheatre1,booktheatre2,booktheatre3,booktheatre4,
+    Button booktheatre1,booktheatre2,booktheatre3,booktheatre4,booktheatre5,booktheatre6,
             gototrailer1,gototrailer2,gototrailer3,gototrailer4;
     @FXML Label usernameLabel,usernameLabel1,usernameLabel2;
     @FXML TableView<csvFileforTableView> csvTableView ;
@@ -99,7 +99,9 @@ public class Cinema implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("chair5.fxml"));
         s.setScene(new Scene(loader.load(),600,550));// set Scene size
         Theatre5 userName = loader.getController();
+        Theatre5 timeshow = loader.getController();
         userName.setUsername(usernameLabel.getText());
+        timeshow.setTimeshowLabel(booktheatre5.getText());// send timeshow of movie to Theatre 5
         s.show();
     }
     @FXML public void bookingTheatre6(ActionEvent event)throws IOException {//go to chair6.fxml จองหนังในโรงที่ 6
@@ -108,7 +110,9 @@ public class Cinema implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("chair6.fxml"));
         s.setScene(new Scene(loader.load(),600,550));// set Scene size
         Theatre6 userName = loader.getController();
+        Theatre6 timeshow = loader.getController();
         userName.setUsername(usernameLabel.getText());
+        timeshow.setTimeshowLabel(booktheatre6.getText());// send timeshow of movie to Theatre 6
         s.show();
     }
     public void clickGoToTrailer1(ActionEvent event) throws IOException {//go to trailer1.fxml ดูตัวอย่างหนังของหนังโรงที่ 1
@@ -168,6 +172,8 @@ public class Cinema implements Initializable {
 
     public void setUsername(String username){//set username
         usernameLabel.setText(username);
+        usernameLabel1.setText(username);
+        usernameLabel2.setText(username);
     }
     public void btnupdateCsvTable() throws IOException { // save BookingData.csv after user booking or cancel bookingchair
         ArrayList<BufferedReader> buff = new ArrayList<>();// and setTableView at CSV tab to show text in BookingData.csv

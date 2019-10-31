@@ -1,2 +1,9 @@
-1,Star Wars: Episode V - The Empire Strikes Back,timeshow,Theatre 5,c0
-1,Star Wars: Episode V - The Empire Strikes Back,timeshow,Theatre 5,b0
+1,Star Wars: Episode V - The Empire Strikes Back,12.30,Theatre 5,b0
+1,Star Wars: Episode V - The Empire Strikes Back,12.30,Theatre 5,a0
+Admin1,Star Wars: Episode V - The Empire Strikes Back,12.30,Theatre 5,b1
+Admin1,Star Wars: Episode V - The Empire Strikes Back,12.30,Theatre 5,b2
+Admin1,Star Wars: Episode V - The Empire Strikes Back,12.30,Theatre 5,b3
+Admin1,Star Wars: Episode V - The Empire Strikes Back,12.30,Theatre 5,b4
+Admin1,Star Wars: Episode V - The Empire Strikes Back,12.30,Theatre 5,a1
+Admin1,Star Wars: Episode V - The Empire Strikes Back,12.30,Theatre 5,a2
+Admin1,Star Wars: Episode V - The Empire Strikes Back,12.30,Theatre 5,a3

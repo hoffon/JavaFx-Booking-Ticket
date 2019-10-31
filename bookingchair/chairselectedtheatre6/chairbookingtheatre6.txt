@@ -1,2 +1,4 @@
-Admin1,Star Wars: Episode I - The Phantom Menace,timeshow,Theatre 6,c0
-Admin1,Star Wars: Episode I - The Phantom Menace,timeshow,Theatre 6,b1
+Admin2,Star Wars: Episode I - The Phantom Menace,17.30,Theatre 6,b2
+Admin2,Star Wars: Episode I - The Phantom Menace,17.30,Theatre 6,a0
+Admin2,Star Wars: Episode I - The Phantom Menace,17.30,Theatre 6,a1
+Admin2,Star Wars: Episode I - The Phantom Menace,17.30,Theatre 6,a2

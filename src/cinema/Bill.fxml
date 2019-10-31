@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="334.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cinema.Bill">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="43.0" prefWidth="309.0" text="KU BOOKING TICKET">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="31.0" />
+         </font>
+      </Label>
+      <Line endX="196.0" layoutX="127.0" layoutY="57.0" startX="-100.0" />
+      <Label fx:id="movieName" layoutX="27.0" layoutY="67.0" prefHeight="21.0" prefWidth="294.0" text="movie name">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="18.0" />
+         </font>
+      </Label>
+      <Line endX="192.5" layoutX="124.0" layoutY="87.0" startX="-100.0" />
+      <Label fx:id="theatreName" layoutX="119.0" layoutY="192.0" prefHeight="27.0" prefWidth="122.0" text="theatre">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="timeshowLabel" layoutX="143.0" layoutY="248.0" text="time">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="backbutton" layoutX="276.0" layoutY="298.0" mnemonicParsing="false" onAction="#backToFirstPage" text="Back" />
+      <Label fx:id="usernameLabel" layoutX="293.0" layoutY="65.0" text="Label" visible="false" />
+      <Line endX="100.0" layoutX="217.0" layoutY="159.0" startX="-100.0" />
+      <Label fx:id="priceLabel" layoutX="276.0" layoutY="134.0" prefHeight="17.0" prefWidth="40.0" text="price">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="13.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="217.0" layoutY="169.0" startX="-100.0" />
+      <Label layoutX="117.0" layoutY="134.0" text="TOTAL">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

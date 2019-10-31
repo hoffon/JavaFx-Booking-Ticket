@@ -23,10 +23,10 @@ public class Theatre2 implements backToFirstPage{
 
     private int sumPrice = 0  ;
 
-    ArrayList<NormalChair> chairs  ;// ArrayList เก็บ เก้าอี้ที่อยู่ในโรงหนังทั้งหมด
+    ArrayList<Chair4K> chairs  ;// ArrayList เก็บ เก้าอี้ที่อยู่ในโรงหนังทั้งหมด
     ArrayList<String> chairsSelected,checkBoxes,chairUser,user ;//chairSelected ดูตำแหน่งเก้าอี้ที่ได้ถูกจองไป , checkBoxes เก็บตำแหน่งเก้าอี้ที่ถูกจอง,chairUserเก็บชื่อของผู้ที่จองเก้าอี้,user ดูผู้ที่จองเก้าอี้
     HashMap<String,ArrayList<String>> checkUserBooking ;// Hashmap เก็บดูว่า  user ที่จองเก้าอี้มี ใครบ้างและจองที่ไหนบ้าง
-    NormalChair chairD0,chairD1,chairD2,chairD3,chairD4,chairD5,chairD6,// เก้าอี้
+    Chair4K chairD0,chairD1,chairD2,chairD3,chairD4,chairD5,chairD6,// เก้าอี้
             chairC0,chairC1,chairC2,chairC3,chairC4,chairC5,chairC6,
             chairB0,chairB1,chairB2,chairB3,chairB4,chairB5,chairB6,
             chairA0,chairA1,chairA2,chairA3,chairA4,chairA5,chairA6;
@@ -36,34 +36,34 @@ public class Theatre2 implements backToFirstPage{
     @FXML  public void initialize() {// method เริ่มต้น เมื่อย้ายมา scene นี้ จะทำการสร้างเก้าอี้ (Object) แล้วเก็บใน ArrayList
         String fs = File.separator;
         fileBookingTheatre2 = new MyFile(System.getProperty("user.dir") + fs + "bookingchair" + fs + "chairselectedtheatre2", "chairbookingtheatre2.txt");
-        chairD0 = new NormalChair(d0,chaird0);
-        chairD1 = new NormalChair(d1,chaird1);
-        chairD2 = new NormalChair(d2,chaird2);
-        chairD3 = new NormalChair(d3,chaird3);
-        chairD4 = new NormalChair(d4,chaird4);
-        chairD5 = new NormalChair(d5,chaird5);
-        chairD6 = new NormalChair(d6,chaird6);
-        chairC0 = new NormalChair(c0,chairc0);
-        chairC1 = new NormalChair(c1,chairc1);
-        chairC2 = new NormalChair(c2,chairc2);
-        chairC3 = new NormalChair(c3,chairc3);
-        chairC4 = new NormalChair(c4,chairc4);
-        chairC5 = new NormalChair(c5,chairc5);
-        chairC6 = new NormalChair(c6,chairc6);
-        chairB0 = new NormalChair(b0,chairb0);
-        chairB1 = new NormalChair(b1,chairb1);
-        chairB2 = new NormalChair(b2,chairb2);
-        chairB3 = new NormalChair(b3,chairb3);
-        chairB4 = new NormalChair(b4,chairb4);//  NormalChair price : 50    //
-        chairB5 = new NormalChair(b5,chairb5);
-        chairB6 = new NormalChair(b6,chairb6);
-        chairA0 = new NormalChair(a0,chaira0,200);
-        chairA1 = new NormalChair(a1,chaira1,200);
-        chairA2 = new NormalChair(a2,chaira2,200);
-        chairA3 = new NormalChair(a3,chaira3,200);//  NormalChair price : 200    //
-        chairA4 = new NormalChair(a4,chaira4,200);
-        chairA5 = new NormalChair(a5,chaira5,200);
-        chairA6 = new NormalChair(a6,chaira6,200);
+        chairD0 = new Chair4K(d0,chaird0);
+        chairD1 = new Chair4K(d1,chaird1);
+        chairD2 = new Chair4K(d2,chaird2);
+        chairD3 = new Chair4K(d3,chaird3);
+        chairD4 = new Chair4K(d4,chaird4);
+        chairD5 = new Chair4K(d5,chaird5);
+        chairD6 = new Chair4K(d6,chaird6);
+        chairC0 = new Chair4K(c0,chairc0);
+        chairC1 = new Chair4K(c1,chairc1);
+        chairC2 = new Chair4K(c2,chairc2);
+        chairC3 = new Chair4K(c3,chairc3);
+        chairC4 = new Chair4K(c4,chairc4);
+        chairC5 = new Chair4K(c5,chairc5);
+        chairC6 = new Chair4K(c6,chairc6);
+        chairB0 = new Chair4K(b0,chairb0);
+        chairB1 = new Chair4K(b1,chairb1);
+        chairB2 = new Chair4K(b2,chairb2);
+        chairB3 = new Chair4K(b3,chairb3);
+        chairB4 = new Chair4K(b4,chairb4);//  Chair4K price : 200    //
+        chairB5 = new Chair4K(b5,chairb5);
+        chairB6 = new Chair4K(b6,chairb6);
+        chairA0 = new Chair4K(a0,chaira0,250);
+        chairA1 = new Chair4K(a1,chaira1,250);
+        chairA2 = new Chair4K(a2,chaira2,250);
+        chairA3 = new Chair4K(a3,chaira3,250);//  Chair4K price : 250    //
+        chairA4 = new Chair4K(a4,chaira4,250);
+        chairA5 = new Chair4K(a5,chaira5,250);
+        chairA6 = new Chair4K(a6,chaira6,250);
         chairs = new ArrayList<>();
         chairsSelected = new ArrayList<>();
         checkBoxes = new ArrayList<>();
@@ -112,41 +112,62 @@ public class Theatre2 implements backToFirstPage{
         s.show();
     }
     public void bookingChair(ActionEvent event) throws IOException {// method จองเก้าอี้
-        for (NormalChair chair : chairs){
-            if (chair.getBox().isSelected()) {// ถ้าเก้าอี้ที่ checkbox ถูกเลือก
-                chairSelectedPrice(chair);// sumPrice (ราคารวม) จะบวกเพิ่ม
-                checkBoxes.add(chair.getBox().getId());// ArrayList checkBoxs ทำการเก็บตำแหน่งของเก้าอี้
-            }
-        }
-        Alert td = new Alert(Alert.AlertType.CONFIRMATION); // กล่องแจ้งเตือนเพื่อยืนยันการจอง
-        td.setTitle("ยืนยันการจอง");
-        td.setContentText("ที่นั่งที่จอง "+checkBoxes+"\nยอดที่ต้องจ่าย " +getSumPrice());// สรุปค่าใช้จ่ายรวมของเก้าอี้ทั้งหมดที่ user ได้เลือกไว้ และ แสดงตำแหน่ง ที่ username ได้เลือกไว้
-        td.showAndWait();
-        if (td.getResult().getText().equals("OK")) {// ถ้า user กด ตกลง
-            for (Chair chair : chairs) {
-                if (chair.getBox().isSelected()) {// ดูเก้าอี้ทั้งหมด
-                    chair.getBox().setDisable(true);// ถ้าเก้าอี้ถูกจอง checkbox จะถูก disable ไม่ให้ทำการจองได้
-                    chair.setStatusBooking(true);// ตั้งค่าให้เก้าอี้มีสถานะการจองเป็น false
-                    chair.setBookingName(usernameLabel.getText());// ตั้งค่าให้เก้าอี้ที่ถูกจองมีชื่อของผู้จองเป็น username ที่ได้จองเก้าอี้ตัวนี้
-                    String text = usernameLabel.getText()+","+movieName.getText()+","+timeshowLabel.getText()+
-                            ","+theatreName.getText()+","+chair.getBox().getId() ;
-                    fileBookingTheatre2.appendWithNewLine(text);// เขียนลงในไฟล์ fileBookingTheatre1
+            boolean c = false ;
+            for (Chair4K chair : chairs)
+                if (chair.getBox().isSelected())
+                    c = true ;
+            if(c) {
+                for (Chair4K chair : chairs){
+                    if (chair.getBox().isSelected()) {   // ถ้าเก้าอี้ที่ checkbox ถูกเลือก
+                        chairSelectedPrice(chair);       // sumPrice (ราคารวม) จะบวกเพิ่ม
+                        checkBoxes.add(chair.getBox().getId()); // ArrayList checkBoxs ทำการเก็บตำแหน่งของเก้าอี้
+                    }
+                }
+                Alert td = new Alert(Alert.AlertType.CONFIRMATION);  // กล่องแจ้งเตือนเพื่อยืนยันการจอง
+                td.setTitle("ยืนยันการจอง");
+                td.setContentText("ที่นั่งที่จอง "+checkBoxes+"\nยอดที่ต้องจ่าย " +getSumPrice());  // สรุปค่าใช้จ่ายรวมของเก้าอี้ทั้งหมดที่ user ได้เลือกไว้ และ แสดงตำแหน่ง ที่ username ได้เลือกไว้
+                td.showAndWait();
+                if (td.getResult().getText().equals("OK")) { // ถ้า user กด ตกลง
+                    for (Chair chair : chairs) {
+                        if (chair.getBox().isSelected()) { // ดูเก้าอี้ทั้งหมด
+                            chair.getBox().setDisable(true); // ถ้าเก้าอี้ถูกจอง checkbox จะถูก disable ไม่ให้ทำการจองได้
+                            chair.setStatusBooking(true); // ตั้งค่าให้เก้าอี้มีสถานะการจองเป็น false
+                            chair.setBookingName(usernameLabel.getText()); // ตั้งค่าให้เก้าอี้ที่ถูกจองมีชื่อของผู้จองเป็น username ที่ได้จองเก้าอี้ตัวนี้
+                            String text = usernameLabel.getText()+","+movieName.getText()+","+timeshowLabel.getText()+
+                                    ","+theatreName.getText()+","+chair.getBox().getId() ;
+                            fileBookingTheatre2.appendWithNewLine(text); // เขียนลงในไฟล์ fileBookingTheatre1
+                        }
+                    }
+                    fileBookingTheatre2.save(); // save fileBookingTheatre1
+                    Button b = (Button) event.getSource() ;
+                    Stage s = (Stage) b.getScene().getWindow() ;
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("Bill.fxml"));
+                    s.setScene(new Scene(loader.load(),334,336)); // set Scene size
+                    Bill moviename = loader.getController();
+                    moviename.setMovieNameLabel(movieName.getText());
+                    Bill time = loader.getController();
+                    time.setTimeshowLabel(timeshowLabel.getText());
+                    Bill theatre = loader.getController();
+                    theatre.setTheatreLabel(theatreName.getText());
+                    Bill price = loader.getController();
+                    price.setPriceLabelLabel(String.valueOf(getSumPrice()));
+                    Bill username = loader.getController();
+                    username.setUsername(usernameLabel.getText());
+                    s.show();
+                }
+                else if (td.getResult().getText().equals("Cancel")) { // ถ้า  user กด ยกเลิก
+                    setSumPrice(0); // set sumPrice (ราคารวม) มีค่า 0
+                    checkBoxes.clear(); // delete all chair.isSelected in ArrayList
                 }
             }
-            fileBookingTheatre2.save();// save fileBookingTheatre2
-            Button b = (Button) event.getSource() ;
-            Stage s = (Stage) b.getScene().getWindow() ;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-            s.setScene(new Scene(loader.load(),600,573));// set Scene size
-            Cinema userName = loader.getController();
-            userName.setUsername(usernameLabel.getText());//send username to Cinema
-            s.show();
+            else {
+                Alert td = new Alert(Alert.AlertType.ERROR);  // กล่องแจ้งเตือนเพื่อยืนยันการจอง
+                td.setTitle("กรุณาเลือกเก้าอี้");
+                td.setContentText("ไม่พบเก้าอี้ที่จอง");
+                td.showAndWait();
+            }
         }
-        else if (td.getResult().getText().equals("Cancel")) {// ถ้า  user กด ยกเลิก
-            setSumPrice(0);// set sumPrice (ราคารวม) มีค่า 0
-            checkBoxes.clear();// delete all chair.isSelected in ArrayList
-        }
-    }
+
     public void cancelBooking(){// method ยกเลิกการจองเก้าอี้
         readFileToCancelBooking();
         if (checkUserBooking.containsKey(usernameLabel.getText())) { //ถ้า checkuserBooking มี key ตรงกับ username ที่ login เข้ามา
@@ -197,8 +218,8 @@ public class Theatre2 implements backToFirstPage{
     public int getSumPrice() {
         return sumPrice;
     }// เรียกผลรวมของราคาเก้าอี้
-    public void chairSelectedPrice(NormalChair price){
-        sumPrice += price.getNormalChairPrice();
+    public void chairSelectedPrice(Chair4K price){
+        sumPrice += price.getChair4KPrice();
     }//เพิ่มราคารวมของเก้าอี้เมื่อผู้ใช้เก้าอี้เพิ่มเข้ามา
     public void setSumPrice(int sumPrice) {// set ราคารวมของเก้าอี้ให้เป็น 0 เมื่อผู้ใช้ต้องการจองเเก้าอี้พิ่ม
         this.sumPrice = sumPrice;

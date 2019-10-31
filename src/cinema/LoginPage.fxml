@@ -38,5 +38,20 @@
       <Button fx:id="loginButton" layoutX="347.0" layoutY="219.0" mnemonicParsing="false" onAction="#goToMockupMoviePage" text="login" />
       <Button fx:id="registerButton" layoutX="446.0" layoutY="219.0" mnemonicParsing="false" onAction="#goToRegisterPage" text="register" />
       <PasswordField fx:id="passwordtextfield" layoutX="381.0" layoutY="184.0" />
+      <Label layoutX="35.0" layoutY="110.0" text="BOOKING">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="181.0" text="TICKET">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+         </font>
+      </Label>
+      <Label layoutX="112.0" layoutY="43.0" text="KU">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="48.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

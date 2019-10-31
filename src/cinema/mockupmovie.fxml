@@ -119,7 +119,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="25.0" layoutY="190.0" mnemonicParsing="false" onAction="#bookingTheatre5" text="12.30" />
+                                    <Button fx:id="booktheatre5" layoutX="25.0" layoutY="190.0" mnemonicParsing="false" onAction="#bookingTheatre5" text="12.30" />
                                     <Label layoutX="302.0" layoutY="189.0" text="Theatre 5">
                                        <font>
                                           <Font size="18.0" />
@@ -250,7 +250,7 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                    <Button layoutX="10.0" layoutY="194.0" mnemonicParsing="false" onAction="#bookingTheatre6" text="17.30" />
+                                    <Button fx:id="booktheatre6" layoutX="10.0" layoutY="194.0" mnemonicParsing="false" onAction="#bookingTheatre6" text="17.30" />
                                     <ImageView fitHeight="34.0" fitWidth="23.0" layoutX="273.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../image/theater.png" />

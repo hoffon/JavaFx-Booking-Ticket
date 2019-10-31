@@ -48,13 +48,13 @@ public class Theatre5 implements backToFirstPage{
         chairB4 = new NormalChair(b4, chairb4);
         chairB5 = new NormalChair(b5, chairb5);
         chairB6 = new NormalChair(b6, chairb6);
-        chairA0 = new NormalChair(a0, chaira0, 150);
-        chairA1 = new NormalChair(a1, chaira1, 150);
-        chairA2 = new NormalChair(a2, chaira2, 150);
-        chairA3 = new NormalChair(a3, chaira3, 150);//  NormalChair price : 300    //
-        chairA4 = new NormalChair(a4, chaira4, 150);
-        chairA5 = new NormalChair(a5, chaira5, 150);
-        chairA6 = new NormalChair(a6, chaira6, 150);
+        chairA0 = new NormalChair(a0, chaira0, 300);
+        chairA1 = new NormalChair(a1, chaira1, 300);
+        chairA2 = new NormalChair(a2, chaira2, 300);
+        chairA3 = new NormalChair(a3, chaira3, 300);//  NormalChair price : 300    //
+        chairA4 = new NormalChair(a4, chaira4, 300);
+        chairA5 = new NormalChair(a5, chaira5, 300);
+        chairA6 = new NormalChair(a6, chaira6, 300);
         chairs = new ArrayList<>();
         chairsSelected = new ArrayList<>();
         checkBoxes = new ArrayList<>();
@@ -95,39 +95,59 @@ public class Theatre5 implements backToFirstPage{
         s.show();
     }
     public void bookingChair(ActionEvent event) throws IOException {// method จองเก้าอี้
-        for (NormalChair chair : chairs){
-            if (chair.getBox().isSelected()) {// ถ้าเก้าอี้ที่ checkbox ถูกเลือก
-                chairSelectedPrice(chair);// sumPrice (ราคารวม) จะบวกเพิ่ม
-                checkBoxes.add(chair.getBox().getId());// ArrayList checkBoxs ทำการเก็บตำแหน่งของเก้าอี้
-            }
-        }
-        Alert td = new Alert(Alert.AlertType.CONFIRMATION);// กล่องแจ้งเตือนเพื่อยืนยันการจอง
-        td.setTitle("ยืนยันการจอง");
-        td.setContentText("ที่นั่งที่จอง "+checkBoxes+"\nยอดที่ต้องจ่าย " +getSumPrice());// สรุปค่าใช้จ่ายรวมของเก้าอี้ทั้งหมดที่ user ได้เลือกไว้ และ แสดงตำแหน่ง ที่ username ได้เลือกไว้
-        td.showAndWait();
-        if (td.getResult().getText().equals("OK")) {// ถ้า user กด ตกลง
-            for (Chair chair : chairs) {
-                if (chair.getBox().isSelected()) {// ดูเก้าอี้ทั้งหมด
-                    chair.getBox().setDisable(true);// ถ้าเก้าอี้ถูกจอง checkbox จะถูก disable ไม่ให้ทำการจองได้
-                    chair.setStatusBooking(true);// ตั้งค่าให้เก้าอี้มีสถานะการจองเป็น false
-                    chair.setBookingName(usernameLabel.getText());// ตั้งค่าให้เก้าอี้ที่ถูกจองมีชื่อของผู้จองเป็น username ที่ได้จองเก้าอี้ตัวนี้
-                    String text = usernameLabel.getText()+","+movieName.getText()+","+timeshowLabel.getText()+
-                            ","+theatreName.getText()+","+chair.getBox().getId() ;
-                    fileBookingTheatre5.appendWithNewLine(text);// เขียนลงในไฟล์ fileBookingTheatre1
+        boolean c = false ;
+        for (NormalChair chair : chairs)
+            if (chair.getBox().isSelected())
+                c = true ;
+        if(c) {
+            for (NormalChair chair : chairs){
+                if (chair.getBox().isSelected()) {   // ถ้าเก้าอี้ที่ checkbox ถูกเลือก
+                    chairSelectedPrice(chair);       // sumPrice (ราคารวม) จะบวกเพิ่ม
+                    checkBoxes.add(chair.getBox().getId()); // ArrayList checkBoxs ทำการเก็บตำแหน่งของเก้าอี้
                 }
             }
-            fileBookingTheatre5.save();// save fileBookingTheatre4
-            Button b = (Button) event.getSource() ;
-            Stage s = (Stage) b.getScene().getWindow() ;
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("mockupmovie.fxml"));
-            s.setScene(new Scene(loader.load(),600,573));// set Scene size
-            Cinema userName = loader.getController();
-            userName.setUsername(usernameLabel.getText());//send username to Cinema
-            s.show();
+            Alert td = new Alert(Alert.AlertType.CONFIRMATION);  // กล่องแจ้งเตือนเพื่อยืนยันการจอง
+            td.setTitle("ยืนยันการจอง");
+            td.setContentText("ที่นั่งที่จอง "+checkBoxes+"\nยอดที่ต้องจ่าย " +getSumPrice());  // สรุปค่าใช้จ่ายรวมของเก้าอี้ทั้งหมดที่ user ได้เลือกไว้ และ แสดงตำแหน่ง ที่ username ได้เลือกไว้
+            td.showAndWait();
+            if (td.getResult().getText().equals("OK")) { // ถ้า user กด ตกลง
+                for (Chair chair : chairs) {
+                    if (chair.getBox().isSelected()) { // ดูเก้าอี้ทั้งหมด
+                        chair.getBox().setDisable(true); // ถ้าเก้าอี้ถูกจอง checkbox จะถูก disable ไม่ให้ทำการจองได้
+                        chair.setStatusBooking(true); // ตั้งค่าให้เก้าอี้มีสถานะการจองเป็น false
+                        chair.setBookingName(usernameLabel.getText()); // ตั้งค่าให้เก้าอี้ที่ถูกจองมีชื่อของผู้จองเป็น username ที่ได้จองเก้าอี้ตัวนี้
+                        String text = usernameLabel.getText()+","+movieName.getText()+","+timeshowLabel.getText()+
+                                ","+theatreName.getText()+","+chair.getBox().getId() ;
+                        fileBookingTheatre5.appendWithNewLine(text); // เขียนลงในไฟล์ fileBookingTheatre1
+                    }
+                }
+                fileBookingTheatre5.save(); // save fileBookingTheatre1
+                Button b = (Button) event.getSource() ;
+                Stage s = (Stage) b.getScene().getWindow() ;
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Bill.fxml"));
+                s.setScene(new Scene(loader.load(),334,336)); // set Scene size
+                Bill moviename = loader.getController();
+                moviename.setMovieNameLabel(movieName.getText());
+                Bill time = loader.getController();
+                time.setTimeshowLabel(timeshowLabel.getText());
+                Bill theatre = loader.getController();
+                theatre.setTheatreLabel(theatreName.getText());
+                Bill price = loader.getController();
+                price.setPriceLabelLabel(String.valueOf(getSumPrice()));
+                Bill username = loader.getController();
+                username.setUsername(usernameLabel.getText());
+                s.show();
+            }
+            else if (td.getResult().getText().equals("Cancel")) { // ถ้า  user กด ยกเลิก
+                setSumPrice(0); // set sumPrice (ราคารวม) มีค่า 0
+                checkBoxes.clear(); // delete all chair.isSelected in ArrayList
+            }
         }
-        else if (td.getResult().getText().equals("Cancel")) {// ถ้า  user กด ยกเลิก
-            setSumPrice(0);// set sumPrice (ราคารวม) มีค่า 0
-            checkBoxes.clear();// delete all chair.isSelected in ArrayList
+        else {
+            Alert td = new Alert(Alert.AlertType.ERROR);  // กล่องแจ้งเตือนเพื่อยืนยันการจอง
+            td.setTitle("กรุณาเลือกเก้าอี้");
+            td.setContentText("ไม่พบเก้าอี้ที่จอง");
+            td.showAndWait();
         }
     }
     public void cancelBooking(){// method ยกเลิกการจองเก้าอี้
@@ -153,9 +173,9 @@ public class Theatre5 implements backToFirstPage{
                             chair.getBox().setDisable(false);// checkbox จะใช้การได้ (จองได้)
                             chair.setStatusBooking(false);// set สถานะการจอง false
                             chair.setBookingName("-");// set ชื่อผู้จองเก้าอี้ให้เป็น ไม่มีผู้จอง
-                            if(chair.getNormalChairPrice() != 150)// ถ้าเก้าอี้มีราคาไม่เท่ากับ 150 set เป็นรูปเก้าอี้ที่จองได้
+                            if(chair.getNormalChairPrice() != 300)// ถ้าเก้าอี้มีราคาไม่เท่ากับ 300 set เป็นรูปเก้าอี้ที่จองได้
                                 chair.getImage().setImage(new Image("image/chair.png"));
-                            else chair.getImage().setImage(new Image("image/premiumchair.png"));// ถ้าเก้าอี้มีราคาเท่ากับ 150 set เป็นรูปเก้าอี้ที่จองได้
+                            else chair.getImage().setImage(new Image("image/premiumchair.png"));// ถ้าเก้าอี้มีราคาเท่ากับ 300 set เป็นรูปเก้าอี้ที่จองได้
                         }
                     }
                     writeFileAfterCancelBooking();
@@ -171,32 +191,32 @@ public class Theatre5 implements backToFirstPage{
     }
     public void mouseClick(){// method กดเลืกเก้าอี้เ
         for (NormalChair chair : chairs){
-            if (chairsSelected.contains(chair.getBox().getId()) && chair.getNormalChairPrice() != 150 )// ถ้าตำแหน่งเก้าอี้ อยู่ในArrayList และ ถ้าเก้าอี้มีราคาไม่เท่ากับ 150 เก้าอี้จะถูก set Image chairselected
+            if (chairsSelected.contains(chair.getBox().getId()) && chair.getNormalChairPrice() != 300 )// ถ้าตำแหน่งเก้าอี้ อยู่ในArrayList และ ถ้าเก้าอี้มีราคาไม่เท่ากับ 300 เก้าอี้จะถูก set Image chairselected
                 chair.getImage().setImage(new Image("image/chairselected.png"));
-            else if (chair.getBox().isSelected() && chair.getNormalChairPrice() != 150){// ถ้าตำแหน่งเก้าอี้ ถูกเลือก   และ ถ้าเก้าอี้มีราคาไม่เท่ากับ 150 เก้าอี้จะถูก set Image chairselect
+            else if (chair.getBox().isSelected() && chair.getNormalChairPrice() != 300){// ถ้าตำแหน่งเก้าอี้ ถูกเลือก   และ ถ้าเก้าอี้มีราคาไม่เท่ากับ 300 เก้าอี้จะถูก set Image chairselect
                 chair.getImage().setImage(new Image("image/chairselect.png"));
             }
-            else if (chair.getBox().isDisable() && chair.getNormalChairPrice() == 150)// ถ้า checkbox ของ เก้าอี้ถูก disable  และ ถ้าเก้าอี้มีราคาท่ากับ 150 เก้าอี้จะถูก set Image premiumchairselected
+            else if (chair.getBox().isDisable() && chair.getNormalChairPrice() == 300)// ถ้า checkbox ของ เก้าอี้ถูก disable  และ ถ้าเก้าอี้มีราคาท่ากับ 300 เก้าอี้จะถูก set Image premiumchairselected
                 chair.getImage().setImage(new Image("image/premiumchairselected.png"));
-            else if (!chair.getBox().isSelected() && chair.getNormalChairPrice() == 150)// ถ้า checkbox ของ เก้าอี้ไม่ถูกเลือก  และ ถ้าเก้าอี้มีราคาเท่ากับ 150 เก้าอี้จะถูก set Image premiumchair
+            else if (!chair.getBox().isSelected() && chair.getNormalChairPrice() == 300)// ถ้า checkbox ของ เก้าอี้ไม่ถูกเลือก  และ ถ้าเก้าอี้มีราคาเท่ากับ 300 เก้าอี้จะถูก set Image premiumchair
                 chair.getImage().setImage(new Image("image/premiumchair.png"));
-            else if (chair.getBox().isSelected() && chair.getNormalChairPrice() == 150)// ถ้า checkbox ของ เก้าอี้ถูกเลือก  และ ถ้าเก้าอี้มีราคาเท่ากับ 150 เก้าอี้จะถูก set Image premiumchairselect
+            else if (chair.getBox().isSelected() && chair.getNormalChairPrice() == 300)// ถ้า checkbox ของ เก้าอี้ถูกเลือก  และ ถ้าเก้าอี้มีราคาเท่ากับ 300 เก้าอี้จะถูก set Image premiumchairselect
                 chair.getImage().setImage(new Image("image/premiumchairselect.png"));
             else chair.getImage().setImage(new Image("image/chair.png"));
         }
     }
     public void mouseClickPremium(){
         for (NormalChair chair : chairs){
-            if (chairsSelected.contains(chair.getBox().getId()) && chair.getNormalChairPrice() == 150)// ถ้าตำแหน่งเก้าอี้ อยู่ในArrayList และ ถ้าเก้าอี้มีราคาเท่ากับ 150 เก้าอี้จะถูก set Image premiumchairselected
+            if (chairsSelected.contains(chair.getBox().getId()) && chair.getNormalChairPrice() == 300)// ถ้าตำแหน่งเก้าอี้ อยู่ในArrayList และ ถ้าเก้าอี้มีราคาเท่ากับ 300 เก้าอี้จะถูก set Image premiumchairselected
                 chair.getImage().setImage(new Image("image/premiumchairselected.png"));
-            else if (chair.getBox().isSelected() && chair.getNormalChairPrice() == 150){// ถ้าตำแหน่งเก้าอี้ ถูกเลือก   และ ถ้าเก้าอี้มีราคาเท่ากับ 150 เก้าอี้จะถูก set Image premiumchairselect
+            else if (chair.getBox().isSelected() && chair.getNormalChairPrice() == 300){// ถ้าตำแหน่งเก้าอี้ ถูกเลือก   และ ถ้าเก้าอี้มีราคาเท่ากับ 300 เก้าอี้จะถูก set Image premiumchairselect
                 chair.getImage().setImage(new Image("image/premiumchairselect.png"));
             }
-            else if (chair.getBox().isDisable() && chair.getNormalChairPrice() != 150)// ถ้า checkbox ของ เก้าอี้ถูก disable  และ ถ้าเก้าอี้มีราคาไม่เท่ากับ 150 เก้าอี้จะถูก set Image chairselected
+            else if (chair.getBox().isDisable() && chair.getNormalChairPrice() != 300)// ถ้า checkbox ของ เก้าอี้ถูก disable  และ ถ้าเก้าอี้มีราคาไม่เท่ากับ 300 เก้าอี้จะถูก set Image chairselected
                 chair.getImage().setImage(new Image("image/chairselected.png"));
-            else if (!chair.getBox().isSelected() && chair.getNormalChairPrice() != 150)// ถ้า checkbox ของ เก้าอี้ไม่ถูกเลือก  และ ถ้าเก้าอี้มีราคาไม่เท่ากับ 150 เก้าอี้จะถูก set Image chair
+            else if (!chair.getBox().isSelected() && chair.getNormalChairPrice() != 300)// ถ้า checkbox ของ เก้าอี้ไม่ถูกเลือก  และ ถ้าเก้าอี้มีราคาไม่เท่ากับ 300 เก้าอี้จะถูก set Image chair
                 chair.getImage().setImage(new Image("image/chair.png"));
-            else if (chair.getBox().isSelected() && chair.getNormalChairPrice() != 150)// ถ้า checkbox ของ เก้าอี้ถูกเลือก  และ ถ้าเก้าอี้มีราคาไม่เท่ากับ 150 เก้าอี้จะถูก set Image chairselect
+            else if (chair.getBox().isSelected() && chair.getNormalChairPrice() != 300)// ถ้า checkbox ของ เก้าอี้ถูกเลือก  และ ถ้าเก้าอี้มีราคาไม่เท่ากับ 300 เก้าอี้จะถูก set Image chairselect
                 chair.getImage().setImage(new Image("image/chairselect.png"));
             else chair.getImage().setImage(new Image("image/premiumchair.png"));
         }
@@ -215,12 +235,12 @@ public class Theatre5 implements backToFirstPage{
                 chairsSelected.add(chairBox);// ArrayList เก็บ ตำแหน่งเก้าอี้ที่ได้ถูกจองไป
                 if(!user.contains(username)) user.add(username);// ถ้า ArrayList user ยังไม่มี username จะทำการเพิ่ม
                 for (NormalChair chair : chairs) {
-                    if (chairsSelected.contains(chair.getBox().getId())&& chair.getNormalChairPrice() != 150) {// ถ้าเก้าอี้มีราคาไม่เท่ากับ 150 และchairselected มีตำแหน่งที่นั่งของเก้าอี้
+                    if (chairsSelected.contains(chair.getBox().getId())&& chair.getNormalChairPrice() != 300) {// ถ้าเก้าอี้มีราคาไม่เท่ากับ 300 และchairselected มีตำแหน่งที่นั่งของเก้าอี้
                         chair.getBox().setDisable(true);// checkbox จะถูก Disable
                         if(chair.getBookingName().equals("-")) chair.setBookingName(username);// set ชื่อผู้จองเก้าอี้ตัวนี้ ถ้าเก้าอี้ไม่มีชื่อผู้จอง
                         chair.getImage().setImage(new Image("image/chairselected.png"));// set รูปให้เก้าอี้ เป็นchairselected คือเก้าอี้ที่ถูกจองแล้ว
                     }
-                    else if  (chairsSelected.contains(chair.getBox().getId()) && chair.getNormalChairPrice() == 150) {// ถ้าเก้าอี้มีราคา 1500 และchairselected มีตำแหน่งที่นั่งของเก้าอี้
+                    else if  (chairsSelected.contains(chair.getBox().getId()) && chair.getNormalChairPrice() == 300) {// ถ้าเก้าอี้มีราคา 300 และchairselected มีตำแหน่งที่นั่งของเก้าอี้
                         chair.getBox().setDisable(true);
                         if(chair.getBookingName().equals("-")) chair.setBookingName(username);// set ชื่อผู้จองเก้าอี้ตัวนี้ ถ้าเก้าอี้ไม่มีชื่อผู้จอง
                         chair.getImage().setImage(new Image("image/premiumchairselected.png"));// set รูปให้เก้าอี้ เป็นpremiumchairselected คือเก้าอี้ที่ถูกจองแล้ว
@@ -267,7 +287,7 @@ public class Theatre5 implements backToFirstPage{
             PrintWriter out = new PrintWriter(fileWriter);
             for (NormalChair chair : chairs) {
                 if (chair.getBox().isDisable() && chair.getBookingName().equals(usernameLabel.getText())) {//ถ้าเก้าอี้ถูก disable และ ชื่อของผู้จองเก้าอี้ตัวนี้ตรงกับ username ที่login เข้ามา
-                    if(chair.getNormalChairPrice() != 150 ) {//ถ้า ราคาเก้าอี้ไม่เท่ากับ 150
+                    if(chair.getNormalChairPrice() != 300 ) {//ถ้า ราคาเก้าอี้ไม่เท่ากับ 300
                         chair.getBox().setDisable(true);// checkbox จะถูก disable และไม่สามารถจองได้
                         chair.setStatusBooking(true);
                         chair.getImage().setImage(new Image("image/chairselected.png"));// set รูปภาพเก้าอี้นี้
@@ -286,7 +306,7 @@ public class Theatre5 implements backToFirstPage{
                 }
                 else if(chair.getBox().isDisable() && !chair.getBookingName().equals(usernameLabel.getText())
                         && user.contains(chair.getBookingName())){//ถ้าเก้าอี้ถูก disable และ ชื่อของผู้จองเก้าอี้ตัวนี้ไม่ตรงกับ username ที่login เข้ามาและ ชื่อของผู้ที่จองเก้าอี้ตัวนี้อยู่ใน ArraysList  user และ ชื่อของผู้จองเก้าอี้อยู่ใน user
-                    if(chair.getNormalChairPrice() != 150 ) {//ถ้า ราคาเก้าอี้ไม่เท่ากับ 150
+                    if(chair.getNormalChairPrice() != 300 ) {//ถ้า ราคาเก้าอี้ไม่เท่ากับ 300
                         chair.getBox().setDisable(true);// checkbox จะถูก disable และไม่สามารถจองได้
                         chair.setStatusBooking(true);
                         chair.getImage().setImage(new Image("image/chairselected.png"));// set รูปภาพเก้าอี้นี้
