@@ -1,6 +1,0 @@
-Admin2,Star Wars: Episode II - Attack of the Clones ,20.00,Theatre 2,d0
-Admin2,Star Wars: Episode II - Attack of the Clones ,20.00,Theatre 2,c0
-Admin2,Star Wars: Episode II - Attack of the Clones ,20.00,Theatre 2,b0
-Admin2,Star Wars: Episode II - Attack of the Clones ,20.00,Theatre 2,a0
-Admin2,Star Wars: Episode II - Attack of the Clones ,20.00,Theatre 2,a1
-Admin1,Star Wars: Episode II - Attack of the Clones ,20.00,Theatre 2,b6
